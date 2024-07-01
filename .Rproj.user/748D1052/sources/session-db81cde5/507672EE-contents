@@ -1,0 +1,39 @@
+---
+title: "Git"
+format: html
+editor: visual
+---
+
+## Was ist Git?
+
+Git ist eine Software zur Dateiversionierung. Damit lassen sich Änderungen an Dateien nachverfolgen und wiederherstellen. Ein besonderer Vorteil ist die Möglichkeit, die Dateien online mit einem Dienst, wie z.B. Github zu synchronisieren. Dies ermöglicht dir den Zugriff auf stets aktuelle Daten und das Teilen der Dateien mit anderen, sowie ein kollaboratives Arbeiten.
+
+Du kannst für jeden Ordner auf deinem Rechner ein Git-Repositorium erstellen. Wir werden das für jedes Analyseprojekt tun, um die Projekte teilen und Änderungen an den Dateien nachvollziehen zu können.
+
+## Git installieren
+
+<http://git-scm.com/downloads/> (Windows & Mac OS)
+
+-   Windows: Lade die .exe-Datei herunter, führe sie aus und akzeptiere alle Standardeinstellungen (es sei denn, Du weißt, was Du tust) und klicke immer wieder auf "weiter".
+
+-   OS X: Wähle unter dem obigen Link die erste Option, die vorschlägt, Git über die Installation von Homebrew zu installieren, indem Du die Befehlszeile aus der Anleitung im Terminal einfügst und akzeptiere die in Ihrem Terminal erscheinenden Aufforderungen.
+
+## Git konfigurieren
+
+Nach der Installation von Git musst Du Git sagen, wer Du bist. Öffne dazu die bei Windows die Git-Bash (Start \> Git Bash) oder bei OS X die Terminal app und gib folgende Befehle ein. Ersetze dabei "Dein Name" und "Deine Email" durch deinen Namen und deine Email-Adresse.
+
+``` bash
+git config --global user.name "Dein Name"
+git config --global user.email "deine@email.de"
+```
+
+::: callout-tip
+Nutze die gleiche Email-Adresse, die Du auch für Github verwenden wirst. Wenn du den Copilot nutzen willst, nimm die *psy.lmu.de* bzw. *campus.lmu.de*-Adresse.
+:::
+
+::: callout-tip
+## Ressourcen
+
+[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
+[Happy Git and GitHub for the useR](https://happygitwithr.com/)
+:::

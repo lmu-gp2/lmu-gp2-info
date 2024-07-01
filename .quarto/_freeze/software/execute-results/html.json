@@ -1,0 +1,15 @@
+{
+  "hash": "3ca01118ccf332e42e2f4afedff7052c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"workshop_24-07-05\"\nauthor: \"Moritz C. Dechamps\"\ndate: \"2024-06-30\"\noutput: html_document\n---\n\n\n\n\n## Software\n\n### R\n\n<https://cran.rstudio.com/>\n\n-   R ist die Software, welche die Berechnungen (\"unter der Motorhaube\") durchführt\n-   R heißt auch die Programmiersprache, welche von der Software genutzt wird\n\n### RStudio\n\n<https://posit.co/download/rstudio-desktop/>\n\n-   Wir nutzen RStudio, um mit R zu arbeiten, da die Software mehr Funktionalität anbietet\n-   Wir brauchen trotzdem R, da RStudio auf unsere R-Installation zugreift\n\n### Packages / Libraries\n\nEine besondere Stärke von R ist die Möglichkeit *Packages* zu nutzen, die in *Libraries* zur Verfügung gestellt werden (das kann als synonym betrachtet werden).\n\nPackages stammen üblicherweise aus einer von zwei Quellen:\n\n-   CRAN: Diese Packages können direkt in RStudio installiert werden via `install.packages(\"libraryname\")` bzw über den Reiter *Packages* \\> *Install*\n\n-   Github: Manche packages werden auf Github zur Verfügung gestellt. In der Regel gibt es auf deren Github-Seite eine Anleitung, wie sie über die RStudio-*Console* installiert werden, z.B.\n\n``` R\n# Install remotes if necessary\nif (!requireNamespace(\"remotes\")) install.packages(\"remotes\")\n# Get package from Github\nremotes::install_github(\"mrzdcmps/changeofevidence\")\n```\n\n### Updates\n\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

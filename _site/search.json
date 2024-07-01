@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "rco.html",
+    "href": "rco.html",
+    "title": "R, RStudio, und Packages",
+    "section": "",
+    "text": "https://cran.rstudio.com/\n\nR ist die Software, welche die Berechnungen (“unter der Motorhaube”) durchführt\nR heißt auch die Programmiersprache, welche von der Software genutzt wird"
+  },
+  {
+    "objectID": "rco.html#r-rstudio-und-packages",
+    "href": "rco.html#r-rstudio-und-packages",
+    "title": "R und co.",
+    "section": "",
+    "text": "https://cran.rstudio.com/\n\nR ist die Software, welche die Berechnungen (“unter der Motorhaube”) durchführt\nR heißt auch die Programmiersprache, welche von der Software genutzt wird\n\n\n\n\nhttps://posit.co/download/rstudio-desktop/\n\nWir nutzen RStudio, um mit R zu arbeiten, da die Software mehr Funktionalität anbietet\nWir brauchen trotzdem R, da RStudio auf unsere R-Installation zugreift\n\n\n\n\nEine besondere Stärke von R ist die Möglichkeit Packages zu nutzen, die in Libraries zur Verfügung gestellt werden (das kann als synonym betrachtet werden).\nPackages stammen üblicherweise aus einer von zwei Quellen:\n\nCRAN: Diese Packages können direkt in RStudio installiert werden via install.packages(\"libraryname\") bzw über den Reiter Packages &gt; Install\nGithub: Manche packages werden auf Github zur Verfügung gestellt. In der Regel gibt es auf deren Github-Seite eine Anleitung, wie sie über die RStudio-Console installiert werden, z.B.\n\n# Install remotes if necessary\nif (!requireNamespace(\"remotes\")) install.packages(\"remotes\")\n# Get package from Github\nremotes::install_github(\"mrzdcmps/changeofevidence\")\n\n\n\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten."
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "workshop_24-07-05",
+    "section": "",
+    "text": "https://cran.rstudio.com/\n\nR ist die Software, welche die Berechnungen (“unter der Motorhaube”) durchführt\nR heißt auch die Programmiersprache, welche von der Software genutzt wird\n\n\n\n\nhttps://posit.co/download/rstudio-desktop/\n\nWir nutzen RStudio, um mit R zu arbeiten, da die Software mehr Funktionalität anbietet\nWir brauchen trotzdem R, da RStudio auf unsere R-Installation zugreift\n\n\n\n\nEine besondere Stärke von R ist die Möglichkeit Packages zu nutzen, die in Libraries zur Verfügung gestellt werden (das kann als synonym betrachtet werden).\nPackages stammen üblicherweise aus einer von zwei Quellen:\n\nCRAN: Diese Packages können direkt in RStudio installiert werden via install.packages(\"libraryname\") bzw über den Reiter Packages &gt; Install\nGithub: Manche packages werden auf Github zur Verfügung gestellt. In der Regel gibt es auf deren Github-Seite eine Anleitung, wie sie über die RStudio-Console installiert werden, z.B.\n\n# Install remotes if necessary\nif (!requireNamespace(\"remotes\")) install.packages(\"remotes\")\n# Get package from Github\nremotes::install_github(\"mrzdcmps/changeofevidence\")\n\n\n\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten."
+  },
+  {
+    "objectID": "software.html#software",
+    "href": "software.html#software",
+    "title": "workshop_24-07-05",
+    "section": "",
+    "text": "https://cran.rstudio.com/\n\nR ist die Software, welche die Berechnungen (“unter der Motorhaube”) durchführt\nR heißt auch die Programmiersprache, welche von der Software genutzt wird\n\n\n\n\nhttps://posit.co/download/rstudio-desktop/\n\nWir nutzen RStudio, um mit R zu arbeiten, da die Software mehr Funktionalität anbietet\nWir brauchen trotzdem R, da RStudio auf unsere R-Installation zugreift\n\n\n\n\nEine besondere Stärke von R ist die Möglichkeit Packages zu nutzen, die in Libraries zur Verfügung gestellt werden (das kann als synonym betrachtet werden).\nPackages stammen üblicherweise aus einer von zwei Quellen:\n\nCRAN: Diese Packages können direkt in RStudio installiert werden via install.packages(\"libraryname\") bzw über den Reiter Packages &gt; Install\nGithub: Manche packages werden auf Github zur Verfügung gestellt. In der Regel gibt es auf deren Github-Seite eine Anleitung, wie sie über die RStudio-Console installiert werden, z.B.\n\n# Install remotes if necessary\nif (!requireNamespace(\"remotes\")) install.packages(\"remotes\")\n# Get package from Github\nremotes::install_github(\"mrzdcmps/changeofevidence\")\n\n\n\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten."
+  },
+  {
+    "objectID": "rco.html#r",
+    "href": "rco.html#r",
+    "title": "R, RStudio, und Packages",
+    "section": "",
+    "text": "https://cran.rstudio.com/\n\nR ist die Software, welche die Berechnungen (“unter der Motorhaube”) durchführt\nR heißt auch die Programmiersprache, welche von der Software genutzt wird"
+  },
+  {
+    "objectID": "rco.html#rstudio",
+    "href": "rco.html#rstudio",
+    "title": "R, RStudio, und Packages",
+    "section": "RStudio",
+    "text": "RStudio\nhttps://posit.co/download/rstudio-desktop/\n\nWir nutzen RStudio, um mit R zu arbeiten, da die Software mehr Funktionalität anbietet\nWir brauchen trotzdem R, da RStudio auf unsere R-Installation zugreift"
+  },
+  {
+    "objectID": "rco.html#packages-libraries",
+    "href": "rco.html#packages-libraries",
+    "title": "R, RStudio, und Packages",
+    "section": "Packages / Libraries",
+    "text": "Packages / Libraries\nEine besondere Stärke von R ist die Möglichkeit Packages zu nutzen, die in Libraries zur Verfügung gestellt werden (das kann als synonym betrachtet werden).\nPackages stammen üblicherweise aus einer von zwei Quellen:\n\nCRAN: Diese Packages können direkt in RStudio installiert werden via install.packages(\"libraryname\") bzw über den Reiter Packages &gt; Install\nGithub: Manche packages werden auf Github zur Verfügung gestellt. In der Regel gibt es auf deren Github-Seite eine Anleitung, wie sie über die RStudio-Console installiert werden, z.B.\n\n# Install remotes if necessary\nif (!requireNamespace(\"remotes\")) install.packages(\"remotes\")\n# Get package from Github\nremotes::install_github(\"mrzdcmps/changeofevidence\")"
+  },
+  {
+    "objectID": "rco.html#updates",
+    "href": "rco.html#updates",
+    "title": "R, RStudio, und Packages",
+    "section": "Updates",
+    "text": "Updates\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten.\n\n\n\n\n\n\nÜbungen\n\n\n\n\nInstalliere bzw. update R und RStudio\nInstalliere das Package tidyverse von CRAN\nInstalliere die Packages qpsy und changeofevidence von Github\nUpdate alle Packages in RStudio\n\n\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to R"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Willkommen",
+    "section": "",
+    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nTip\n\n\n\nStudierende können ebenso teilnehmen, können aber nicht Teil des Kooperationsnetzwerks auf Github werden."
+  },
+  {
+    "objectID": "index.html#über-diesen-workshop",
+    "href": "index.html#über-diesen-workshop",
+    "title": "Willkommen",
+    "section": "",
+    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nTip\n\n\n\nStudierende können ebenso teilnehmen, können aber nicht Teil des Kooperationsnetzwerks auf Github werden."
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Git",
+    "section": "",
+    "text": "Git ist eine Software zur Dateiversionierung. Damit lassen sich Änderungen an Dateien nachverfolgen und wiederherstellen. Ein besonderer Vorteil ist die Möglichkeit, die Dateien online mit einem Dienst, wie z.B. Github zu synchronisieren. Dies ermöglicht dir den Zugriff auf stets aktuelle Daten und das Teilen der Dateien mit anderen, sowie ein kollaboratives Arbeiten.\nDu kannst für jeden Ordner auf deinem Rechner ein Git-Repositorium erstellen. Wir werden das für jedes Analyseprojekt tun, um die Projekte teilen und Änderungen an den Dateien nachvollziehen zu können."
+  },
+  {
+    "objectID": "git.html#was-ist-git",
+    "href": "git.html#was-ist-git",
+    "title": "Git",
+    "section": "",
+    "text": "Git ist eine Software zur Dateiversionierung. Damit lassen sich Änderungen an Dateien nachverfolgen und wiederherstellen. Ein besonderer Vorteil ist die Möglichkeit, die Dateien online mit einem Dienst, wie z.B. Github zu synchronisieren. Dies ermöglicht dir den Zugriff auf stets aktuelle Daten und das Teilen der Dateien mit anderen, sowie ein kollaboratives Arbeiten.\nDu kannst für jeden Ordner auf deinem Rechner ein Git-Repositorium erstellen. Wir werden das für jedes Analyseprojekt tun, um die Projekte teilen und Änderungen an den Dateien nachvollziehen zu können."
+  },
+  {
+    "objectID": "git.html#git-installieren",
+    "href": "git.html#git-installieren",
+    "title": "Git",
+    "section": "Git installieren",
+    "text": "Git installieren\nhttp://git-scm.com/downloads/ (Windows & Mac OS)\n\nWindows: Lade die .exe-Datei herunter, führe sie aus und akzeptiere alle Standardeinstellungen (es sei denn, Du weißt, was Du tust) und klicke immer wieder auf “weiter”.\nOS X: Wähle unter dem obigen Link die erste Option, die vorschlägt, Git über die Installation von Homebrew zu installieren, indem Du die Befehlszeile aus der Anleitung im Terminal einfügst und akzeptiere die in Ihrem Terminal erscheinenden Aufforderungen."
+  },
+  {
+    "objectID": "git.html#git-konfigurieren",
+    "href": "git.html#git-konfigurieren",
+    "title": "Git",
+    "section": "Git konfigurieren",
+    "text": "Git konfigurieren\nNach der Installation von Git musst Du Git sagen, wer Du bist. Öffne dazu die bei Windows die Git-Bash (Start &gt; Git Bash) oder bei OS X die Terminal app und gib folgende Befehle ein. Ersetze dabei “Dein Name” und “Deine Email” durch deinen Namen und deine Email-Adresse.\ngit config --global user.name \"Dein Name\"\ngit config --global user.email \"deine@email.de\"\n\n\n\n\n\n\nTip\n\n\n\nNutze die gleiche Email-Adresse, die Du auch für Github verwenden wirst. Wenn du den Copilot nutzen willst, nimm die psy.lmu.de bzw. campus.lmu.de-Adresse.\n\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to version Control in R with RStudio, Git, and Github Happy Git and GitHub for the useR"
+  },
+  {
+    "objectID": "github.html",
+    "href": "github.html",
+    "title": "Github",
+    "section": "",
+    "text": "Wir werden Github nutzen, um unsere Analyse-Repositorien zu speichern und zu teilen."
+  },
+  {
+    "objectID": "github.html#account-erstellen",
+    "href": "github.html#account-erstellen",
+    "title": "Github",
+    "section": "Account erstellen",
+    "text": "Account erstellen\nErstelle ein Konto auf Github. Nutze dabei deine psy.lmu.de oder campus.lmu.de-Adresse."
+  },
+  {
+    "objectID": "github.html#die-lmu-gp2-organisation",
+    "href": "github.html#die-lmu-gp2-organisation",
+    "title": "Github",
+    "section": "Die LMU-GP2 Organisation",
+    "text": "Die LMU-GP2 Organisation\nAlle Analyseprojekte werden in einem eigenen Git-Repositorium gespeichert. Um auf die Daten und Skripte der anderen zugreifen zu können, werden wir die Repositorien in der Github-Organisation LMU-GP2 speichern.\n\n\n\n\n\n\nÜbungen\n\n\n\n\nBitte Moritz, Teil der Organisation zu werden"
+  },
+  {
+    "objectID": "github.html#verbinde-rstudio-mit-github",
+    "href": "github.html#verbinde-rstudio-mit-github",
+    "title": "Github",
+    "section": "Verbinde RStudio mit Github",
+    "text": "Verbinde RStudio mit Github\nUm uns über Programme, wie RStudio mit Github verbinden zu können, brauchen wir einen Personal Access Token, den wir anstelle eine Passworts verwenden.\nErstelle Dir einen Token auf https://github.com/settings/tokens/ und kopiere ihn zunächst in ein leeres Dokument (z.B. Editor).\nWenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern, gibst du einmalig den Token als Passwort ein. Auf diesem Rechner ist er dann gespeichert.\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to version Control in R with RStudio, Git, and Github Happy Git and GitHub for the useR"
+  }
+]

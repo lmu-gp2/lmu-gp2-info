@@ -1,0 +1,60 @@
+project:
+  type: website
+
+
+website:
+  title: ""
+  page-footer:
+    center: "Copyright, 2024 Moritz Dechamps"
+    border: false
+  search:
+    location: sidebar
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+
+sidebar:
+  style: docked
+contents:
+  - text: "Überblick"
+    href: index.qmd
+  - section: "Voraussetzungen"
+    contents:
+      - href: rco.qmd
+        text: "R und co."
+      - href: git.qmd
+        text: "Git"
+      - href: github.qmd
+        text: "Github"
+  - section: "Workflow"
+    contents:
+      - href: lmu-gp2.qmd
+        text: "qpsy-Daten und LMU GP2-Projekte"
+      - href: cloneproject.qmd
+        text: "Ein Projekt klonen"
+      - href: newproject.qmd
+        text: "Ein neues Projekt anlegen"
+  - section: "Datenauswertung"
+    contents:
+      - href: getrawdata.qmd
+        text: "Rohdaten herunterladen"
+      - href: expfile.qmd
+        text: "Experimentalfile erstellen"
+      - href: analysis.qmd
+        text: "Datenanalyse"
+  - section: "Bonus: Copilot"
+    contents: 
+      - href: copilot.qmd
+
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
