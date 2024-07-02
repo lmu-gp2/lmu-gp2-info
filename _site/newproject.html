@@ -136,6 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#variante-1" id="toc-variante-1" class="nav-link active" data-scroll-target="#variante-1">Variante 1</a></li>
+  <li><a href="#variante-2" id="toc-variante-2" class="nav-link" data-scroll-target="#variante-2">Variante 2</a></li>
   </ul>
 </nav>
     </div>
@@ -161,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Ihr habt die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, müsst ihr ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor.</p>
+<p>Du hast die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, musst du ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor.</p>
 <section id="variante-1" class="level2">
 <h2 class="anchored" data-anchor-id="variante-1">Variante 1</h2>
 <p><strong>1. Ein neues RStudio-Projekt anlegen und Git aktivieren</strong></p>
@@ -170,12 +171,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="images/clipboard-780143245.png" class="img-fluid"></p>
 <p>Ein neuer Ordner mit dem Projektnamen wird erstellt und enthält die <code>projektname.Rproj</code> und <code>.gitignore</code>-Dateien.</p>
 <p><strong>2. Daten herunterladen und analysieren</strong></p>
-<p>Erstellt ein neues R-Skript unter File &gt; New File &gt; R script und ladet die Rohdaten vom Server und analysiert drauf los.</p>
+<p>Erstelle ein neues R-Skript unter File &gt; New File &gt; R script und lade die Rohdaten vom Server und analysiere drauf los.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qpsy)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">loadexp</span>(<span class="st">"testdata/study1"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Speichert das R-Skript, z.B. als <code>testdata1.R</code></p>
-<p><strong>3. Beginnt mit der Versionierung via Git</strong></p>
+<p>Speicher das R-Skript, z.B. als <code>testdata1.R</code></p>
+<p><strong>3. Beginne mit der Versionierung via Git</strong></p>
+<p>Öffne den <em>Git</em> tab oben rechts: Hier seht ihr, dass es neue, bisher unbekannte (untracked) Dateien gibt. Wir wollen die Versionierung für alle Dateien außer der <code>config.yml</code> aktivieren, da hier das Passwort für den Server gespeichert ist.</p>
+<p><img src="images/clipboard-3205946887.png" class="img-fluid"></p>
+<p>Wir können die <code>config.yml</code> igorieren (untracked lassen), oder Git mitteilen, dass sie ignoriert werden und gar nicht mehr in der Liste auftauchen soll. Dazu öffnen wir die <code>.gitignore</code>-Datei unter <em>Files</em> und ergänzen den Dateinamen.</p>
+<pre><code>.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+config.yml</code></pre>
+<p>Nachdem wir gespeichert haben, verschwindet die <code>config.yml</code> in der Git-Übersicht.</p>
+<p>Klicke jetzt das Kästchen aller Dateien an, die getrackt werden sollen (in der Regel alle) und klicke auf <em>Commit</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-99358453.png" class="img-fluid figure-img"></p>
+<figcaption>Gib in dem auftauchenden Fenster eine <em>commit message</em> ein - das muss man tun! - also z.B. <strong>testdata initialisieren</strong> und clicke erneut auf <em>Commit</em>.</figcaption>
+</figure>
+</div>
+<p>Das nächste Fenster zeigt dir den Fortschritt. Sobald alles fertig ist, kannst du es schließen und bist fertig!</p>
+<p><img src="images/clipboard-1899249682.png" class="img-fluid"></p>
+<p><strong>4. Das lokale Repo mit Github synchronisieren</strong></p>
+<p>Gehe in deinem Browser auf Github, logg dich ein und wähle <em>Repositories</em> im Menü. Klicke jetzt auf den grünen Button <strong>New</strong>.</p>
+<p>Wähle als Owner <strong>lmu-gp2</strong> und als Repository name <code>[experiment]-analysis</code>, also z.B. <strong>testdata1-analysis</strong>. Gib eine Description ein, wenn du möchtest, z.B. <strong>Testdata 1</strong> und stelle das Repo zunächst auf <strong>Private</strong>. Klicke anschließend auf <em>Create repository</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2516914775.png" class="img-fluid figure-img"></p>
+<figcaption>Du hast jetzt ein lokales Repo und eines auf Github. Nun musst Du sie nur noch verbinden. Auf der nun erschienenen Seite steht der Befehl, den man braucht um …</figcaption>
+</figure>
+</div>
+<p><strong>…or push an existing repository from the command line</strong></p>
+<pre><code>git remote add origin https://github.com/lmu-gp2/testdata1-analysis.git
+git branch -M main
+git push -u origin main</code></pre>
+<p>Kopiere diesen Code mit Symbol, gehe in dein RStudio-Projekt und füge ihn unten im <strong>Terminal</strong> (nicht der Konsole) ein und bestätige mit Enter.</p>
+<p><img src="images/clipboard-119207626.png" class="img-fluid"></p>
+<p>Wenn du die Github-Setie neu lädst, sind die Dateien jetzt vorhanden und können laufend synchronisiert werden.</p>
+</section>
+<section id="variante-2" class="level2">
+<h2 class="anchored" data-anchor-id="variante-2">Variante 2</h2>
+<p>Automatisiere diese Schritte indem du die <code>addrepo.R</code> abspeicherst und ausführst.</p>
+<p><strong>1. <a href="addrepo.R">Download addrepo.R</a></strong></p>
+<p>Speichere die Datei an einen bekannten Ort, am besten den übergeordneten Ordner der Analyseprojekte.</p>
+<p>Öffne Sie und gib Deine Github-Zugangsdaten für <code>email</code>, <code>name</code> und <code>token</code> ein.</p>
+<p><strong>2. Erstelle ein klassisches R-Projekt</strong></p>
+<p>So wie man es kennt, ob Git bereits aktiviert ist oder nicht, spielt keine Rolle, da es nachaktiviert wird.</p>
+<p><strong>3. Lade das Skript in Deinem R-Projekt</strong></p>
+<p>Öffne das R-Projekt, in dem du ein Git-Repositorium initialisieren und mit Github synchronisieren willst und führe das Skript aus (z.B. in der Console). Wenn die Datei zum Beispiel im übergeordneten Ordner liegt mit:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../addrepo.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>4. Gib die gefragten Details ein und bestätige</strong></p>
+<ul>
+<li><p>Repository name: z.B. testdata1-analysis</p></li>
+<li><p>Repository description: z.B. Testdata 1</p></li>
+</ul>
+<p><strong>5. Lade das Projekt neu</strong></p>
+<p>Lade das Projekt neu, indem du oben rechts auf den Projektnamen klickst und das Projekt erneut öffnest. Anschließend wird der Git-Tab angezeigt. Du bist jetzt synchronsiert.</p>
+<p><img src="images/clipboard-3196590867.png" class="img-fluid"></p>
 
 
 </section>

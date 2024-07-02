@@ -111,11 +111,3 @@ source("../addrepo.R")
 Lade das Projekt neu, indem du oben rechts auf den Projektnamen klickst und das Projekt erneut öffnest. Anschließend wird der Git-Tab angezeigt. Du bist jetzt synchronsiert.
 
 ![](images/clipboard-3196590867.png)
-
-::: callout-tip
-## Ressourcen
-
-[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
-
-[Happy Git and GitHub for the useR](https://happygitwithr.com/)
-:::

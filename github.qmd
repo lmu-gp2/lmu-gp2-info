@@ -28,8 +28,3 @@ Erstelle Dir einen Token auf <https://github.com/settings/tokens/> und kopiere i
 
 Wenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern, gibst du einmalig den Token als Passwort ein. Auf diesem Rechner ist er dann gespeichert.
 
-::: callout-tip
-## Ressourcen
-
-[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/) [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-:::

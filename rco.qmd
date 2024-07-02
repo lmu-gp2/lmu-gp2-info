@@ -47,9 +47,3 @@ Es ist sinnvoll, die Software und Packages regelmäßig zu updaten.
 -   Installiere die Packages `qpsy` und `changeofevidence` von Github
 -   Update alle Packages in RStudio
 :::
-
-::: callout-tip
-## Ressourcen
-
-[Introduction to R](https://lmu-osc.github.io/introduction-to-R/)
-:::

@@ -53,21 +53,21 @@
     "href": "rco.html#updates",
     "title": "R, RStudio, und Packages",
     "section": "Updates",
-    "text": "Updates\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten.\n\n\n\n\n\n\nÜbungen\n\n\n\n\nInstalliere bzw. update R und RStudio\nInstalliere das Package tidyverse von CRAN\nInstalliere die Packages qpsy und changeofevidence von Github\nUpdate alle Packages in RStudio\n\n\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to R"
+    "text": "Updates\nEs ist sinnvoll, die Software und Packages regelmäßig zu updaten.\n\n\n\n\n\n\nÜbungen\n\n\n\n\nInstalliere bzw. update R und RStudio\nInstalliere das Package tidyverse von CRAN\nInstalliere die Packages qpsy und changeofevidence von Github\nUpdate alle Packages in RStudio"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Willkommen",
     "section": "",
-    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nTip\n\n\n\nStudierende können ebenso teilnehmen, können aber nicht Teil des Kooperationsnetzwerks auf Github werden."
+    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Auch interessierte Studierende, die Ihre Abschlussarbeit am Lehrstuhl schreiben können teilnehmen. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to R\nIntroduction to version Control in R with RStudio, Git, and Github\nHappy Git and GitHub for the useR"
   },
   {
     "objectID": "index.html#über-diesen-workshop",
     "href": "index.html#über-diesen-workshop",
     "title": "Willkommen",
     "section": "",
-    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nTip\n\n\n\nStudierende können ebenso teilnehmen, können aber nicht Teil des Kooperationsnetzwerks auf Github werden."
+    "text": "Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls Allgemeine Psychologie 2 der LMU München. Auch interessierte Studierende, die Ihre Abschlussarbeit am Lehrstuhl schreiben können teilnehmen. Er soll einen Überblick liefern, wie\n\nRohdaten vom Webserver (qpsy) geladen werden\nNeue Analyseprojekte mit RStudio angelegt werden\nProjekte zur Kooperation über Github zur Verfügung gestellt werden\nExperimentalfiles aus den Rohdaten generiert werden\nErste Analysen der Daten erfolgen können\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to R\nIntroduction to version Control in R with RStudio, Git, and Github\nHappy Git and GitHub for the useR"
   },
   {
     "objectID": "git.html",
@@ -95,7 +95,7 @@
     "href": "git.html#git-konfigurieren",
     "title": "Git",
     "section": "Git konfigurieren",
-    "text": "Git konfigurieren\nNach der Installation von Git musst Du Git sagen, wer Du bist. Öffne dazu die bei Windows die Git-Bash (Start &gt; Git Bash) oder bei OS X die Terminal app und gib folgende Befehle ein. Ersetze dabei “Dein Name” und “Deine Email” durch deinen Namen und deine Email-Adresse.\ngit config --global user.name \"Dein Name\"\ngit config --global user.email \"deine@email.de\"\n\n\n\n\n\n\nTip\n\n\n\nNutze die gleiche Email-Adresse, die Du auch für Github verwenden wirst. Wenn du den Copilot nutzen willst, nimm die psy.lmu.de bzw. campus.lmu.de-Adresse.\n\n\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to version Control in R with RStudio, Git, and Github Happy Git and GitHub for the useR"
+    "text": "Git konfigurieren\nNach der Installation von Git musst Du Git sagen, wer Du bist. Öffne dazu die bei Windows die Git-Bash (Start &gt; Git Bash) oder bei OS X die Terminal app und gib folgende Befehle ein. Ersetze dabei “Dein Name” und “Deine Email” durch deinen Namen und deine Email-Adresse.\ngit config --global user.name \"Dein Name\"\ngit config --global user.email \"deine@email.de\"\n\n\n\n\n\n\nTip\n\n\n\nNutze die gleiche Email-Adresse, die Du auch für Github verwenden wirst. Wenn du den Copilot nutzen willst, nimm die psy.lmu.de bzw. campus.lmu.de-Adresse."
   },
   {
     "objectID": "github.html",
@@ -123,7 +123,7 @@
     "href": "github.html#verbinde-rstudio-mit-github",
     "title": "Github",
     "section": "Verbinde RStudio mit Github",
-    "text": "Verbinde RStudio mit Github\nUm uns über Programme, wie RStudio mit Github verbinden zu können, brauchen wir einen Personal Access Token, den wir anstelle eine Passworts verwenden.\nErstelle Dir einen Token auf https://github.com/settings/tokens/ und kopiere ihn zunächst in ein leeres Dokument (z.B. Editor).\nWenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern, gibst du einmalig den Token als Passwort ein. Auf diesem Rechner ist er dann gespeichert.\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to version Control in R with RStudio, Git, and Github Happy Git and GitHub for the useR"
+    "text": "Verbinde RStudio mit Github\nUm uns über Programme, wie RStudio mit Github verbinden zu können, brauchen wir einen Personal Access Token, den wir anstelle eine Passworts verwenden.\nErstelle Dir einen Token auf https://github.com/settings/tokens/ und kopiere ihn zunächst in ein leeres Dokument (z.B. Editor).\nWenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern, gibst du einmalig den Token als Passwort ein. Auf diesem Rechner ist er dann gespeichert."
   },
   {
     "objectID": "lmu-gp2.html",
@@ -158,13 +158,20 @@
     "href": "newproject.html",
     "title": "Ein neues Projekt anlegen",
     "section": "",
-    "text": "Ihr habt die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, müsst ihr ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor."
+    "text": "Du hast die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, musst du ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor."
   },
   {
     "objectID": "newproject.html#variante-1",
     "href": "newproject.html#variante-1",
     "title": "Ein neues Projekt anlegen",
     "section": "Variante 1",
-    "text": "Variante 1\n1. Ein neues RStudio-Projekt anlegen und Git aktivieren\nRStudio &gt; New Project &gt; New Directory &gt; New Project\nSpeicherort und Projektnamen aussuchen und Create a git repository aktivieren.\n\nEin neuer Ordner mit dem Projektnamen wird erstellt und enthält die projektname.Rproj und .gitignore-Dateien.\n2. Daten herunterladen und analysieren\nErstellt ein neues R-Skript unter File &gt; New File &gt; R script und ladet die Rohdaten vom Server und analysiert drauf los.\nlibrary(qpsy)\nraw &lt;- loadexp(\"testdata/study1\")\nstr(raw)\nSpeichert das R-Skript, z.B. als testdata1.R\n3. Beginnt mit der Versionierung via Git"
+    "text": "Variante 1\n1. Ein neues RStudio-Projekt anlegen und Git aktivieren\nRStudio &gt; New Project &gt; New Directory &gt; New Project\nSpeicherort und Projektnamen aussuchen und Create a git repository aktivieren.\n\nEin neuer Ordner mit dem Projektnamen wird erstellt und enthält die projektname.Rproj und .gitignore-Dateien.\n2. Daten herunterladen und analysieren\nErstelle ein neues R-Skript unter File &gt; New File &gt; R script und lade die Rohdaten vom Server und analysiere drauf los.\nlibrary(qpsy)\nraw &lt;- loadexp(\"testdata/study1\")\nstr(raw)\nSpeicher das R-Skript, z.B. als testdata1.R\n3. Beginne mit der Versionierung via Git\nÖffne den Git tab oben rechts: Hier seht ihr, dass es neue, bisher unbekannte (untracked) Dateien gibt. Wir wollen die Versionierung für alle Dateien außer der config.yml aktivieren, da hier das Passwort für den Server gespeichert ist.\n\nWir können die config.yml igorieren (untracked lassen), oder Git mitteilen, dass sie ignoriert werden und gar nicht mehr in der Liste auftauchen soll. Dazu öffnen wir die .gitignore-Datei unter Files und ergänzen den Dateinamen.\n.Rproj.user\n.Rhistory\n.RData\n.Ruserdata\nconfig.yml\nNachdem wir gespeichert haben, verschwindet die config.yml in der Git-Übersicht.\nKlicke jetzt das Kästchen aller Dateien an, die getrackt werden sollen (in der Regel alle) und klicke auf Commit.\n\n\n\nGib in dem auftauchenden Fenster eine commit message ein - das muss man tun! - also z.B. testdata initialisieren und clicke erneut auf Commit.\n\n\nDas nächste Fenster zeigt dir den Fortschritt. Sobald alles fertig ist, kannst du es schließen und bist fertig!\n\n4. Das lokale Repo mit Github synchronisieren\nGehe in deinem Browser auf Github, logg dich ein und wähle Repositories im Menü. Klicke jetzt auf den grünen Button New.\nWähle als Owner lmu-gp2 und als Repository name [experiment]-analysis, also z.B. testdata1-analysis. Gib eine Description ein, wenn du möchtest, z.B. Testdata 1 und stelle das Repo zunächst auf Private. Klicke anschließend auf Create repository.\n\n\n\nDu hast jetzt ein lokales Repo und eines auf Github. Nun musst Du sie nur noch verbinden. Auf der nun erschienenen Seite steht der Befehl, den man braucht um …\n\n\n…or push an existing repository from the command line\ngit remote add origin https://github.com/lmu-gp2/testdata1-analysis.git\ngit branch -M main\ngit push -u origin main\nKopiere diesen Code mit Symbol, gehe in dein RStudio-Projekt und füge ihn unten im Terminal (nicht der Konsole) ein und bestätige mit Enter.\n\nWenn du die Github-Setie neu lädst, sind die Dateien jetzt vorhanden und können laufend synchronisiert werden."
+  },
+  {
+    "objectID": "newproject.html#variante-2",
+    "href": "newproject.html#variante-2",
+    "title": "Ein neues Projekt anlegen",
+    "section": "Variante 2",
+    "text": "Variante 2\nAutomatisiere diese Schritte indem du die addrepo.R abspeicherst und ausführst.\n1. Download addrepo.R\nSpeichere die Datei an einen bekannten Ort, am besten den übergeordneten Ordner der Analyseprojekte.\nÖffne Sie und gib Deine Github-Zugangsdaten für email, name und token ein.\n2. Erstelle ein klassisches R-Projekt\nSo wie man es kennt, ob Git bereits aktiviert ist oder nicht, spielt keine Rolle, da es nachaktiviert wird.\n3. Lade das Skript in Deinem R-Projekt\nÖffne das R-Projekt, in dem du ein Git-Repositorium initialisieren und mit Github synchronisieren willst und führe das Skript aus (z.B. in der Console). Wenn die Datei zum Beispiel im übergeordneten Ordner liegt mit:\nsource(\"../addrepo.R\")\n4. Gib die gefragten Details ein und bestätige\n\nRepository name: z.B. testdata1-analysis\nRepository description: z.B. Testdata 1\n\n5. Lade das Projekt neu\nLade das Projekt neu, indem du oben rechts auf den Projektnamen klickst und das Projekt erneut öffnest. Anschließend wird der Git-Tab angezeigt. Du bist jetzt synchronsiert."
   }
 ]

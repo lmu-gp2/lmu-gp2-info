@@ -7,7 +7,7 @@ editor: visual
 
 ## Über diesen Workshop
 
-Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls *Allgemeine Psychologie 2* der LMU München. Er soll einen Überblick liefern, wie
+Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls *Allgemeine Psychologie 2* der LMU München. Auch interessierte Studierende, die Ihre Abschlussarbeit am Lehrstuhl schreiben können teilnehmen. Er soll einen Überblick liefern, wie
 
 -   Rohdaten vom Webserver (qpsy) geladen werden
 -   Neue Analyseprojekte mit RStudio angelegt werden
@@ -16,5 +16,11 @@ Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls *Allg
 -   Erste Analysen der Daten erfolgen können
 
 ::: callout-tip
-Studierende können ebenso teilnehmen, können aber nicht Teil des Kooperationsnetzwerks auf Github werden.
+## Ressourcen
+
+[Introduction to R](https://lmu-osc.github.io/introduction-to-R/)
+
+[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
+
+[Happy Git and GitHub for the useR](https://happygitwithr.com/)
 :::

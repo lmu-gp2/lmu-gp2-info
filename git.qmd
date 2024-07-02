@@ -31,9 +31,4 @@ git config --global user.email "deine@email.de"
 Nutze die gleiche Email-Adresse, die Du auch für Github verwenden wirst. Wenn du den Copilot nutzen willst, nimm die *psy.lmu.de* bzw. *campus.lmu.de*-Adresse.
 :::
 
-::: callout-tip
-## Ressourcen
 
-[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
-[Happy Git and GitHub for the useR](https://happygitwithr.com/)
-:::
