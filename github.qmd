@@ -31,6 +31,5 @@ Wenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern,
 ::: callout-tip
 ## Ressourcen
 
-[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
-[Happy Git and GitHub for the useR](https://happygitwithr.com/)
+[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/) [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 :::
