@@ -1,9 +1,10 @@
 ---
 title: "Ein neues Projekt anlegen"
+format: html
 editor: visual
 ---
 
-Ihr habt die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, müsst ihr ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor.
+Du hast die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, musst du ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor.
 
 ## Variante 1
 
@@ -19,7 +20,7 @@ Ein neuer Ordner mit dem Projektnamen wird erstellt und enthält die `projektnam
 
 **2. Daten herunterladen und analysieren**
 
-Erstellt ein neues R-Skript unter File \> New File \> R script und ladet die Rohdaten vom Server und analysiert drauf los.
+Erstelle ein neues R-Skript unter File \> New File \> R script und lade die Rohdaten vom Server und analysiere drauf los.
 
 ``` r
 library(qpsy)
@@ -27,11 +28,11 @@ raw <- loadexp("testdata/study1")
 str(raw)
 ```
 
-Speichert das R-Skript, z.B. als `testdata1.R`
+Speicher das R-Skript, z.B. als `testdata1.R`
 
-**3. Beginnt mit der Versionierung via Git**
+**3. Beginne mit der Versionierung via Git**
 
-Öffnet den *Git* tab oben rechts: Hier seht ihr, dass es neue, bisher unbekannte (untracked) Dateien gibt. Wir wollen die Versionierung für alle Dateien außer der `config.yml` aktivieren, da hier das Passwort für den Server gespeichert ist.
+Öffne den *Git* tab oben rechts: Hier seht ihr, dass es neue, bisher unbekannte (untracked) Dateien gibt. Wir wollen die Versionierung für alle Dateien außer der `config.yml` aktivieren, da hier das Passwort für den Server gespeichert ist.
 
 ![](images/clipboard-3205946887.png)
 
@@ -46,3 +47,75 @@ config.yml
 ```
 
 Nachdem wir gespeichert haben, verschwindet die `config.yml` in der Git-Übersicht.
+
+Klicke jetzt das Kästchen aller Dateien an, die getrackt werden sollen (in der Regel alle) und klicke auf *Commit*.
+
+![Gib in dem auftauchenden Fenster eine *commit message* ein - das muss man tun! - also z.B. **testdata initialisieren** und clicke erneut auf *Commit*.](images/clipboard-99358453.png)
+
+Das nächste Fenster zeigt dir den Fortschritt. Sobald alles fertig ist, kannst du es schließen und bist fertig!
+
+![](images/clipboard-1899249682.png)
+
+**4. Das lokale Repo mit Github synchronisieren**
+
+Gehe in deinem Browser auf Github, logg dich ein und wähle *Repositories* im Menü. Klicke jetzt auf den grünen Button **New**.
+
+Wähle als Owner **lmu-gp2** und als Repository name `[experiment]-analysis`, also z.B. **testdata1-analysis**. Gib eine Description ein, wenn du möchtest, z.B. **Testdata 1** und stelle das Repo zunächst auf **Private**. Klicke anschließend auf *Create repository*.
+
+![Du hast jetzt ein lokales Repo und eines auf Github. Nun musst Du sie nur noch verbinden. Auf der nun erschienenen Seite steht der Befehl, den man braucht um ...](images/clipboard-2516914775.png)
+
+**…or push an existing repository from the command line**
+
+```         
+git remote add origin https://github.com/lmu-gp2/testdata1-analysis.git
+git branch -M main
+git push -u origin main
+```
+
+Kopiere diesen Code mit Symbol, gehe in dein RStudio-Projekt und füge ihn unten im **Terminal** (nicht der Konsole) ein und bestätige mit Enter.
+
+![](images/clipboard-119207626.png)
+
+Wenn du die Github-Setie neu lädst, sind die Dateien jetzt vorhanden und können laufend synchronisiert werden.
+
+## Variante 2
+
+Automatisiere diese Schritte indem du die `addrepo.R` abspeicherst und ausführst.
+
+**1. [Download addrepo.R](addrepo.R)**
+
+Speichere die Datei an einen bekannten Ort, am besten den übergeordneten Ordner der Analyseprojekte.
+
+Öffne Sie und gib Deine Github-Zugangsdaten für `email`, `name` und `token` ein.
+
+**2. Erstelle ein klassisches R-Projekt**
+
+So wie man es kennt, ob Git bereits aktiviert ist oder nicht, spielt keine Rolle, da es nachaktiviert wird.
+
+**3. Lade das Skript in Deinem R-Projekt**
+
+Öffne das R-Projekt, in dem du ein Git-Repositorium initialisieren und mit Github synchronisieren willst und führe das Skript aus (z.B. in der Console). Wenn die Datei zum Beispiel im übergeordneten Ordner liegt mit:
+
+``` r
+source("../addrepo.R")
+```
+
+**4. Gib die gefragten Details ein und bestätige**
+
+-   Repository name: z.B. testdata1-analysis
+
+-   Repository description: z.B. Testdata 1
+
+**5. Lade das Projekt neu**
+
+Lade das Projekt neu, indem du oben rechts auf den Projektnamen klickst und das Projekt erneut öffnest. Anschließend wird der Git-Tab angezeigt. Du bist jetzt synchronsiert.
+
+![](images/clipboard-3196590867.png)
+
+::: callout-tip
+## Ressourcen
+
+[Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
+
+[Happy Git and GitHub for the useR](https://happygitwithr.com/)
+:::
