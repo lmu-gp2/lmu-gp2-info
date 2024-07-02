@@ -37,6 +37,8 @@ contents:
         text: "Ein Projekt klonen"
       - href: newproject.qmd
         text: "Ein neues Projekt anlegen"
+      - href: workwithgit.qmd
+        text: "Die Projekte aktuell halten"
   - section: "Datenauswertung"
     contents:
       - href: getrawdata.qmd

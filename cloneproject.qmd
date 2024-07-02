@@ -1,0 +1,42 @@
+---
+title: "Ein Projekt klonen"
+format: html
+editor: visual
+---
+
+Beispiele:
+
+-   Ihr wollt eine Analyse vervollständigen
+-   Ihr wollt eine Reanalyse durchführen
+-   Ihr wollt alte Daten nochmal ansehen
+-   Ihr wollt Euch für eine Nachfolgestudie am Skript einer vorherigen Studie orientieren
+-   Ihr wollt gemeinsam gleichzeitig an der Analyse arbeiten und sie wurde schon erstellt
+-   ...
+
+## Vorgehen
+
+**1. Überprüfen, dass das Repo bereits auf Github angelegt ist**
+
+<https://github.com/orgs/lmu-gp2/repositories>
+
+![](images/clipboard-2829375962.png)
+
+**2. Den Link zum Repo kopieren**
+
+Auf das Repositorium klicken, den grünen `Code`-Button anklicken und den Link mit dem *Kopieren*-Symbol in die Zwischenablage kopieren.
+
+![](images/clipboard-527473642.png)
+
+**3. Ein neues RStudio-Projekt "Version Control" anlegen und das Repo klonen**
+
+RStudio \> New Project \> Version Control \> Git
+
+![](images/clipboard-1178154407.png)
+
+Kopierten Link bei *Repository URL* einfügen und lokalen Speicherort aussuchen.
+
+![](images/clipboard-3960660125.png)
+
+**4. Skript öffnen und loslegen**
+
+Das R-Skript, z.B. `testdata1.R` öffnen und ausführen. Ihr habt jetzt das fertige Analyseprojekt auf Eurem Rechner!

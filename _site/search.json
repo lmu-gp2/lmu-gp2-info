@@ -124,5 +124,47 @@
     "title": "Github",
     "section": "Verbinde RStudio mit Github",
     "text": "Verbinde RStudio mit Github\nUm uns über Programme, wie RStudio mit Github verbinden zu können, brauchen wir einen Personal Access Token, den wir anstelle eine Passworts verwenden.\nErstelle Dir einen Token auf https://github.com/settings/tokens/ und kopiere ihn zunächst in ein leeres Dokument (z.B. Editor).\nWenn wir gleich das erste Mal ein Projekt von Github klonen bzw. es abspeichern, gibst du einmalig den Token als Passwort ein. Auf diesem Rechner ist er dann gespeichert.\n\n\n\n\n\n\nRessourcen\n\n\n\nIntroduction to version Control in R with RStudio, Git, and Github Happy Git and GitHub for the useR"
+  },
+  {
+    "objectID": "lmu-gp2.html",
+    "href": "lmu-gp2.html",
+    "title": "qpsy-Daten und LMU GP2-Projekte",
+    "section": "",
+    "text": "Wir haben folgende Quellen für Daten und Analyseprojekte:\n\n\nhttps://qpsy.de/data/\nDie Rohdaten aller Onlineexperimente werden auf unserem Webserver gespeichert (passwortgeschützt). Die Ordnerstruktur ist [experiment] / study[studypart], also z.B. [experiment] / study2 für den zweiten Teil einer Studie, etc.\nDie Anzahl an Versuchspersonenfiles kann auch ohne Passworteingabe nachgesehen werden, unter https://qpsy.de/count-ip.php?dir=[experiment], z.B. https://qpsy.de/count-ip.php?dir=testdata/study1\nManchmal sind die VP-Files innerhalb des Ordners in weiteren durchnummerierten Ordner gespeichert, welche dann den einzelnen Versuchsleitern entsprechen.\n\n\n\nWenn wir uns zum ersten Mal die Daten eines Forschungsprojekts ansehen, erstellen wir ein neues Projekt mit RStudio in einem neuen Ordner auf unserem Computer. Als Projektnamen entscheide ich mich in der Regel für den Projektnamen, so wie er auf dem Server gespeichert wird und hänge -analysis an, also z.B. testdata1-analysis für den ersten Studienteil des Experiments testdata.\nWir brauchen die Rohdaten nicht manuell vom Server herunterladen, sondern können das package qpsy dazu benutzen:\nlibrary(qpsy)\nraw &lt;- loadexp(\"testdata/study1\")\n\n\n\nhttps://github.com/lmu-gp2\nDamit die Analyseprojekte nachvollziehbar und vor allem teilbar sind, werden wir sie alle mit Github synchronisieren. Es macht generell also Sinn, erstmal in den Repositorien auf unserer Organisation LMU-GP2 nachzusehen, ob schon ein Analyseprojekt für das Experiment angelegt ist.\nJe nachdem, was der Fall ist, gibt es zwei unterschiedliche Workflows:\n\nEin vorhandenes Projekt klonen\nEin neues Projekt anlegen"
+  },
+  {
+    "objectID": "lmu-gp2.html#orientierung",
+    "href": "lmu-gp2.html#orientierung",
+    "title": "qpsy-Daten und LMU GP2-Projekte",
+    "section": "",
+    "text": "Wir haben folgende Quellen für Daten und Analyseprojekte:\n\n\nhttps://qpsy.de/data/\nDie Rohdaten aller Onlineexperimente werden auf unserem Webserver gespeichert (passwortgeschützt). Die Ordnerstruktur ist [experiment] / study[studypart], also z.B. [experiment] / study2 für den zweiten Teil einer Studie, etc.\nDie Anzahl an Versuchspersonenfiles kann auch ohne Passworteingabe nachgesehen werden, unter https://qpsy.de/count-ip.php?dir=[experiment], z.B. https://qpsy.de/count-ip.php?dir=testdata/study1\nManchmal sind die VP-Files innerhalb des Ordners in weiteren durchnummerierten Ordner gespeichert, welche dann den einzelnen Versuchsleitern entsprechen.\n\n\n\nWenn wir uns zum ersten Mal die Daten eines Forschungsprojekts ansehen, erstellen wir ein neues Projekt mit RStudio in einem neuen Ordner auf unserem Computer. Als Projektnamen entscheide ich mich in der Regel für den Projektnamen, so wie er auf dem Server gespeichert wird und hänge -analysis an, also z.B. testdata1-analysis für den ersten Studienteil des Experiments testdata.\nWir brauchen die Rohdaten nicht manuell vom Server herunterladen, sondern können das package qpsy dazu benutzen:\nlibrary(qpsy)\nraw &lt;- loadexp(\"testdata/study1\")\n\n\n\nhttps://github.com/lmu-gp2\nDamit die Analyseprojekte nachvollziehbar und vor allem teilbar sind, werden wir sie alle mit Github synchronisieren. Es macht generell also Sinn, erstmal in den Repositorien auf unserer Organisation LMU-GP2 nachzusehen, ob schon ein Analyseprojekt für das Experiment angelegt ist.\nJe nachdem, was der Fall ist, gibt es zwei unterschiedliche Workflows:\n\nEin vorhandenes Projekt klonen\nEin neues Projekt anlegen"
+  },
+  {
+    "objectID": "cloneproject.html",
+    "href": "cloneproject.html",
+    "title": "Ein Projekt klonen",
+    "section": "",
+    "text": "Beispiele:"
+  },
+  {
+    "objectID": "cloneproject.html#vorgehen",
+    "href": "cloneproject.html#vorgehen",
+    "title": "Ein Projekt klonen",
+    "section": "Vorgehen",
+    "text": "Vorgehen\n1. Überprüfen, dass das Repo bereits auf Github angelegt ist\nhttps://github.com/orgs/lmu-gp2/repositories\n\n2. Den Link zum Repo kopieren\nAuf das Repositorium klicken, den grünen Code-Button anklicken und den Link mit dem Kopieren-Symbol in die Zwischenablage kopieren.\n\n3. Ein neues RStudio-Projekt “Version Control” anlegen und das Repo klonen\nRStudio &gt; New Project &gt; Version Control &gt; Git\n\nKopierten Link bei Repository URL einfügen und lokalen Speicherort aussuchen.\n\n4. Skript öffnen und loslegen\nDas R-Skript, z.B. testdata1.R öffnen und ausführen. Ihr habt jetzt das fertige Analyseprojekt auf Eurem Rechner!"
+  },
+  {
+    "objectID": "newproject.html",
+    "href": "newproject.html",
+    "title": "Ein neues Projekt anlegen",
+    "section": "",
+    "text": "Ihr habt die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, müsst ihr ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor."
+  },
+  {
+    "objectID": "newproject.html#variante-1",
+    "href": "newproject.html#variante-1",
+    "title": "Ein neues Projekt anlegen",
+    "section": "Variante 1",
+    "text": "Variante 1\n1. Ein neues RStudio-Projekt anlegen und Git aktivieren\nRStudio &gt; New Project &gt; New Directory &gt; New Project\nSpeicherort und Projektnamen aussuchen und Create a git repository aktivieren.\n\nEin neuer Ordner mit dem Projektnamen wird erstellt und enthält die projektname.Rproj und .gitignore-Dateien.\n2. Daten herunterladen und analysieren\nErstellt ein neues R-Skript unter File &gt; New File &gt; R script und ladet die Rohdaten vom Server und analysiert drauf los.\nlibrary(qpsy)\nraw &lt;- loadexp(\"testdata/study1\")\nstr(raw)\nSpeichert das R-Skript, z.B. als testdata1.R\n3. Beginnt mit der Versionierung via Git"
   }
 ]

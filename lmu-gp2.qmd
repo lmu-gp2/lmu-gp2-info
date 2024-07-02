@@ -8,10 +8,34 @@ editor: visual
 
 Wir haben folgende Quellen für Daten und Analyseprojekte:
 
-1.  **Webserver (qpsy)**
+### 1. **Webserver (qpsy)**
 
-    <https://qpsy.de/data/>
+<https://qpsy.de/data/>
 
-    Die Rohdaten aller Onlineexperimente werden auf unserem Webserver gespeichert.
+Die Rohdaten aller Onlineexperimente werden auf unserem Webserver gespeichert (passwortgeschützt). Die Ordnerstruktur ist `[experiment] / study[studypart]`, also z.B. `[experiment] / study2` für den zweiten Teil einer Studie, etc.
 
-2.  
+Die Anzahl an Versuchspersonenfiles kann auch ohne Passworteingabe nachgesehen werden, unter `https://qpsy.de/count-ip.php?dir=[experiment]`, z.B. <https://qpsy.de/count-ip.php?dir=testdata/study1>
+
+Manchmal sind die VP-Files innerhalb des Ordners in weiteren durchnummerierten Ordner gespeichert, welche dann den einzelnen Versuchsleitern entsprechen.
+
+### 2. **Lokale Analyseprojekte**
+
+Wenn wir uns zum ersten Mal die Daten eines Forschungsprojekts ansehen, erstellen wir ein neues Projekt mit RStudio in einem neuen Ordner auf unserem Computer. Als Projektnamen entscheide ich mich in der Regel für den Projektnamen, so wie er auf dem Server gespeichert wird und hänge -analysis an, also z.B. `testdata1-analysis` für den ersten Studienteil des Experiments testdata.
+
+Wir brauchen die Rohdaten nicht manuell vom Server herunterladen, sondern können das package `qpsy` dazu benutzen:
+
+``` r
+library(qpsy)
+raw <- loadexp("testdata/study1")
+```
+
+### 3. **LMU-GP2 auf Github**
+
+<https://github.com/lmu-gp2>
+
+Damit die Analyseprojekte nachvollziehbar und vor allem teilbar sind, werden wir sie alle mit Github synchronisieren. Es macht generell also Sinn, erstmal in den Repositorien auf unserer Organisation *LMU-GP2* nachzusehen, ob schon ein Analyseprojekt für das Experiment angelegt ist.
+
+Je nachdem, was der Fall ist, gibt es zwei unterschiedliche Workflows:
+
+-   [Ein vorhandenes Projekt klonen](cloneproject.html)
+-   [Ein neues Projekt anlegen](newproject.html)

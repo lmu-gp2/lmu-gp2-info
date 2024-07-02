@@ -1,0 +1,48 @@
+---
+title: "Ein neues Projekt anlegen"
+editor: visual
+---
+
+Ihr habt die verfügbaren Repositorien auf Github gecheckt und es gibt noch kein Analyseprojekt für die Daten. In diesem Fall, müsst ihr ein neues Projekt anlegen. Ich stelle Euch 2 Varianten vor.
+
+## Variante 1
+
+**1. Ein neues RStudio-Projekt anlegen und Git aktivieren**
+
+RStudio \> New Project \> New Directory \> New Project
+
+Speicherort und Projektnamen aussuchen und *Create a git repository* aktivieren.
+
+![](images/clipboard-780143245.png)
+
+Ein neuer Ordner mit dem Projektnamen wird erstellt und enthält die `projektname.Rproj` und `.gitignore`-Dateien.
+
+**2. Daten herunterladen und analysieren**
+
+Erstellt ein neues R-Skript unter File \> New File \> R script und ladet die Rohdaten vom Server und analysiert drauf los.
+
+``` r
+library(qpsy)
+raw <- loadexp("testdata/study1")
+str(raw)
+```
+
+Speichert das R-Skript, z.B. als `testdata1.R`
+
+**3. Beginnt mit der Versionierung via Git**
+
+Öffnet den *Git* tab oben rechts: Hier seht ihr, dass es neue, bisher unbekannte (untracked) Dateien gibt. Wir wollen die Versionierung für alle Dateien außer der `config.yml` aktivieren, da hier das Passwort für den Server gespeichert ist.
+
+![](images/clipboard-3205946887.png)
+
+Wir können die `config.yml` igorieren (untracked lassen), oder Git mitteilen, dass sie ignoriert werden und gar nicht mehr in der Liste auftauchen soll. Dazu öffnen wir die `.gitignore`-Datei unter *Files* und ergänzen den Dateinamen.
+
+```         
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+config.yml
+```
+
+Nachdem wir gespeichert haben, verschwindet die `config.yml` in der Git-Übersicht.
