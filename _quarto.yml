@@ -16,41 +16,40 @@ website:
       - href: index.qmd
         text: Home
 
-
-sidebar:
-  style: docked
-contents:
-  - text: "Überblick"
-    href: index.qmd
-  - section: "Voraussetzungen"
+  sidebar:
+    style: docked
     contents:
-      - href: rco.qmd
-        text: "R und co."
-      - href: git.qmd
-        text: "Git"
-      - href: github.qmd
-        text: "Github"
-  - section: "Workflow"
-    contents:
-      - href: lmu-gp2.qmd
-        text: "qpsy-Daten und LMU GP2-Projekte"
-      - href: cloneproject.qmd
-        text: "Ein Projekt klonen"
-      - href: newproject.qmd
-        text: "Ein neues Projekt anlegen"
-      - href: workwithgit.qmd
-        text: "Die Projekte aktuell halten"
-  - section: "Datenauswertung"
-    contents:
-      - href: getrawdata.qmd
-        text: "Rohdaten herunterladen"
-      - href: expfile.qmd
-        text: "Experimentalfile erstellen"
-      - href: analysis.qmd
-        text: "Datenanalyse"
-  - section: "Bonus: Copilot"
-    contents: 
-      - href: copilot.qmd
+      - text: "Überblick"
+        href: index.qmd
+      - section: "Voraussetzungen"
+        contents:
+          - href: rco.qmd
+            text: "R und co."
+          - href: git.qmd
+            text: "Git"
+          - href: github.qmd
+            text: "Github"
+      - section: "Workflow"
+        contents:
+          - href: lmu-gp2.qmd
+            text: "qpsy-Daten und LMU GP2-Projekte"
+          - href: cloneproject.qmd
+            text: "Ein Projekt klonen"
+          - href: newproject.qmd
+            text: "Ein neues Projekt anlegen"
+          - href: workwithgit.qmd
+            text: "Die Projekte aktuell halten"
+      - section: "Datenauswertung"
+        contents:
+          - href: getrawdata.qmd
+            text: "Rohdaten herunterladen"
+          - href: expfile.qmd
+            text: "Experimentalfile erstellen"
+          - href: analysis.qmd
+            text: "Datenanalyse"
+      - section: "Bonus: Copilot"
+        contents: 
+          - href: copilot.qmd
 
 
 

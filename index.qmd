@@ -22,5 +22,7 @@ Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls *Allg
 
 [Introduction to version Control in R with RStudio, Git, and Github](https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/)
 
+[Collaborative coding with GitHub and RStudio](https://lmu-osc.github.io/Collaborative-RStudio-GitHub/)
+
 [Happy Git and GitHub for the useR](https://happygitwithr.com/)
 :::
