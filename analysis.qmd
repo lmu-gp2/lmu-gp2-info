@@ -1,0 +1,108 @@
+---
+title: "Datenanalyse"
+format: html
+editor: visual
+---
+
+### Den finalen Datensatz beschreiben
+
+Nun können wir die Daten auswerten. Zuerst sollten wir die deskriptiven Statistiken überprüfen.
+
+Wir können `describe()` aus dem Paket `psych` für deskriptive Statistiken und `table()` für Häufigkeiten verwenden.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(qpsy)
+library(tidyverse)
+raw <- loadexp("testdata", subdirs = TRUE, splitresponse = TRUE, localcopy = TRUE)
+df_all <- raw %>%                         # select raw data
+  group_by(file) %>%                      # group by file = participations
+  mutate(hits = sum(qbit, na.rm=T)) %>%   # sum up all qbits per file
+  distinct(file, .keep_all=T) %>%         # keep only one row per file
+  select(-c(rt:internal_node_id, url:qbit)) %>% 
+                                          # drop unnecessary columns
+  mutate(                                 # reverse score BLLS_3 and BLLS_4 (0 -> 4; 4 -> 0)
+    BLLS_3 = -BLLS_3+4,
+    BLLS_4 = -BLLS_4+4,
+  ) %>%                                   
+  mutate(                                 # if multiple languages, recode to English
+    gender = case_when(
+      gender %in% c("male", "männlich") ~ "male",
+      gender %in% c("female", "weiblich") ~ "female",
+      gender %in% c("divers", "other") ~ "other"
+    )
+  ) %>%
+  rowwise() %>%                           # calculate scores per row / participant
+  mutate(BLLS_score = mean(c(BLLS_1, BLLS_2, BLLS_3, BLLS_4))) %>% 
+                                          # mean score of BLLS_1 to BLLS_4
+  ungroup() %>%                           # ungroup data frame
+  arrange(time)                           # sort by time of data collection
+
+# We want to add the response of the button press trial and include the reaction times.
+buttonChoice <- raw %>%
+  filter(test_part=="buttonChoice") %>%   # filter for buttonChoice trials
+  mutate(rt = as.numeric(rt)) %>%         # convert rt to numeric
+  group_by(file) %>%                      # group by file = participations
+  summarise(buttonChoice = response, rtChoice = mean(rt))        
+                                          # print response and calculate mean reaction time per file (mean not actually necessary in case of 1 observation)
+
+# We want to have the qbits of each trial as separate variables
+qbits <- raw %>%
+  filter(test_part=="rngTrial") %>%       # filter for qbit trials
+  select(file, qbit) %>%                  # select variables "file" and "qbit"
+  mutate(trial = rep(1:10, length(unique(file)))) %>% 
+                                          # create variable "trial" with values 1 to 10 to distinguish between trials
+  pivot_wider(id_cols = file, values_from = qbit, names_from = trial, names_prefix = "qbit") 
+                                          # create separate variables for each qbit
+
+# Merge the new variables to the data frame
+df_all <- df_all %>%
+  left_join(buttonChoice, by="file") %>%  # join buttonChoice to df_all
+  left_join(qbits, by="file")             # join qbits to df_all
+
+# Create final data frame
+df <- df_all %>%
+  distinct(subject, .keep_all = TRUE) %>%  # keep only the first participation if a subject id is duplicated
+  filter(handaufsherz %in% c("Ja", "Yes")) %>% 
+                                           # filter for participants who answered the data integrity question correctly
+  filter(age >= 18)                        # use only participants over 18
+```
+
+```{r}
+library(psych)
+df %>%
+  select(age, hits, BLLS_score) %>% # select which variables to describe
+  describe()                        # use describe() for descriptive statistics
+
+# describe by group (condition)
+describeBy(hits + BLLS_score ~ condition, data=df)
+
+table(df$gender)                    # use table() for frequencies
+table(df$bildung)                   # use table() for frequencies
+```
+
+
+### Daten analysieren und visualisieren
+
+Schließlich können wir unsere Analysen durchführen.
+Zum Beispiel können wir mit einem t-Test oder einer ANOVA nach Gruppenunterschieden suchen, oder wir können die Daten mit `ggplot()` visualisieren.
+
+Weitere Informationen zu Bayes'schen Tests mit dem Paket "changeofevidence" finden Sie unter [changeofevidence t-test Vignette](https://mrzdcmps.github.io/changeofevidence/vignette-t-test.html).
+
+```{r}
+# t-test for group differences in hits
+t.test(hits ~ condition, data=df, var.equal=T)
+
+# Bayesian t-test for group differences in hits
+library(changeofevidence)
+bf <- bfttest(hits ~ condition, data=df)
+plot(bf)
+
+# ANOVA for gender differences in BLLS_score
+anova <- aov(df$BLLS_score ~ df$gender)
+summary(anova)
+
+# Plot scatterplot of hits and BLLS_score
+ggplot(df, aes(x=hits, y=BLLS_score, color=condition)) +
+  geom_point() +
+  theme_minimal()
+```
