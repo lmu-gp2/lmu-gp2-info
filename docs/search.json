@@ -250,5 +250,17 @@
       "Voraussetzungen",
       "R und co."
     ]
+  },
+  {
+    "objectID": "workwithgit.html",
+    "href": "workwithgit.html",
+    "title": "Die Projekte aktuell halten",
+    "section": "",
+    "text": "Da wir jetzt Git nutzen und ein remote auf Github besitzen, ändert sich der generelle Workflow etwas.\n\nAnalyseprojekt öffnen und mögliche Updates von Github pullen.\nÄnderungen am Skript, Berechnungen, etc. durchführen und die Datei speichern.\nSind die Änderungen erfolgreich, den neuen Stand stagen (also die Kästchen im Git-Reiter aktivieren) und comitten. Dabei immer eine Nachricht eingeben.\nDen neuen Stand des Projekts wieder zu Github pushen.\n\nMan muss nicht nach jedem Commit pushen, sollte es aber regelmäßig tun.\nHistory im Git-Reiter erlaubt es dir, alle erfolgten Änderungen nachzuverfolgen. Man kann auch einen früheren Stand herstellen, allerdings nicht in RStudio, sondern nur via Code über das Terminal.",
+    "crumbs": [
+      "Home",
+      "Workflow",
+      "Die Projekte aktuell halten"
+    ]
   }
 ]

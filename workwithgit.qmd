@@ -1,4 +1,19 @@
 ---
 title: "Die Projekte aktuell halten"
+format: html
 editor: visual
 ---
+
+Da wir jetzt Git nutzen und ein *remote* auf Github besitzen, ändert sich der generelle Workflow etwas.
+
+1.  Analyseprojekt öffnen und mögliche Updates von Github **pullen**.
+
+2.  Änderungen am Skript, Berechnungen, etc. durchführen und die Dateien **speichern**.
+
+3.  Sind die Änderungen erfolgreich, den neuen Stand **stagen** (also die Kästchen im Git-Reiter aktivieren) und **comitten**. Dabei immer eine Nachricht eingeben.
+
+4.  Den neuen Stand des Projekts wieder zu Github **pushen**.
+
+Man muss nicht nach jedem Commit pushen, sollte es aber regelmäßig tun.
+
+Die **History** im Git-Reiter erlaubt es dir, alle erfolgten Änderungen nachzuverfolgen. Man kann auch einen früheren Stand herstellen, allerdings nicht in RStudio, sondern nur via Code über das Terminal.
