@@ -25,5 +25,11 @@
   },
   "workwithgit.qmd": {
     "workwithgit.html": "ebaf9a0f"
+  },
+  "getrawdata.qmd": {
+    "getrawdata.html": "293aca98"
+  },
+  "expfile.qmd": {
+    "expfile.html": "78c2a52a"
   }
 }

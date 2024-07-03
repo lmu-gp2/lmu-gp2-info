@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Die Projekte aktuell halten</title>
+<title>Rohdaten herunterladen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./getrawdata.html" rel="next">
-<link href="./newproject.html" rel="prev">
+<link href="./expfile.html" rel="next">
+<link href="./workwithgit.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lmu-gp2.html">Workflow</a></li><li class="breadcrumb-item"><a href="./workwithgit.html">Die Projekte aktuell halten</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getrawdata.html">Datenauswertung</a></li><li class="breadcrumb-item"><a href="./getrawdata.html">Rohdaten herunterladen</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -182,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workwithgit.html" class="sidebar-item-text sidebar-link active">
+  <a href="./workwithgit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Die Projekte aktuell halten</span></a>
   </div>
 </li>
@@ -199,13 +233,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./getrawdata.html" class="sidebar-item-text sidebar-link">
+  <a href="./getrawdata.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Rohdaten herunterladen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./expfile.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./expfile.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Experimentalfile erstellen</span></a>
   </div>
 </li>
@@ -234,14 +268,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-libraries" id="toc-load-libraries" class="nav-link active" data-scroll-target="#load-libraries">Load Libraries</a></li>
+  <li><a href="#rohdaten-vom-server-importieren" id="toc-rohdaten-vom-server-importieren" class="nav-link" data-scroll-target="#rohdaten-vom-server-importieren">Rohdaten vom Server importieren</a></li>
+  <li><a href="#daten-inspizieren" id="toc-daten-inspizieren" class="nav-link" data-scroll-target="#daten-inspizieren">Daten inspizieren</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lmu-gp2.html">Workflow</a></li><li class="breadcrumb-item"><a href="./workwithgit.html">Die Projekte aktuell halten</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getrawdata.html">Datenauswertung</a></li><li class="breadcrumb-item"><a href="./getrawdata.html">Rohdaten herunterladen</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Die Projekte aktuell halten</h1>
+<h1 class="title">Rohdaten herunterladen</h1>
 </div>
 
 
@@ -258,18 +300,121 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Da wir jetzt Git nutzen und ein <em>remote</em> auf Github besitzen, ändert sich der generelle Workflow etwas.</p>
-<ol type="1">
-<li><p>Analyseprojekt öffnen und mögliche Updates von Github <strong>pullen</strong>.</p></li>
-<li><p>Änderungen am Skript, Berechnungen, etc. durchführen und die Dateien <strong>speichern</strong>.</p></li>
-<li><p>Sind die Änderungen erfolgreich, den neuen Stand <strong>stagen</strong> (also die Kästchen im Git-Reiter aktivieren) und <strong>comitten</strong>. Dabei immer eine Nachricht eingeben.</p></li>
-<li><p>Den neuen Stand des Projekts wieder zu Github <strong>pushen</strong>.</p></li>
-</ol>
-<p>Man muss nicht nach jedem Commit pushen, sollte es aber regelmäßig tun.</p>
-<p>Die <strong>History</strong> im Git-Reiter erlaubt es dir, alle erfolgten Änderungen nachzuverfolgen. Man kann auch einen früheren Stand herstellen, allerdings nicht in RStudio, sondern nur via Code über das Terminal.</p>
-<p>Nachdem der generelle Workflow etabliert ist, schauen wir uns an, wie wir Daten vom Webserver laden und auswerten können.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ressourcen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dieser Teil ist angelehnt an die <a href="https://mrzdcmps.github.io/qpsy/vignette-qpsy.html">qpsy Vignette</a>.</p>
+</div>
+</div>
+<p>Als erstes wollen wir die Experimentaldaten vom Webserver laden. Dort sind sie als .csv-Dateien (comma separated values) gespeichert. Wir haben eine Datei pro Teilnahme mit einer Zeile pro Trial (dabei zählen auch <em>Willkommen</em>, <em>Einverständniserklärung</em>, etc. als Trial).</p>
+<p>Beim importieren der Rohdaten werden alle Dateien aneinander gehängt und bilden so eine Tabelle mit vielen Zeilen. Wir wollen diese Rohdatentabelle in ein Experimentalfile transformieren, welches 1 Zeile pro VP besitzt und in dem alle nötigen Variablen als Spalten vorhanden sind.</p>
+<section id="load-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="load-libraries">Load Libraries</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qpsy)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="rohdaten-vom-server-importieren" class="level3">
+<h3 class="anchored" data-anchor-id="rohdaten-vom-server-importieren">Rohdaten vom Server importieren</h3>
+<p><code>loadexp()</code> lädt die Rohdaten direkt vom Server herunter. Die Funktion hat mehrere Argumente:</p>
+<ul>
+<li><code>study</code>: das Verzeichnis der Studiendaten (z. B. “testdata” oder “testdata/study2”)</li>
+<li><code>subdirs</code>: sollen Unterverzeichnisse einbezogen werden? (z. B. mehrere Studienteile “study1” und “study2” oder Dateien von verschiedenen Versuchsleitern).</li>
+<li><code>splitresponse</code>: sollen die Antworten auf Fragebogentrials als separate Variablen gespeichert werden? (z. B. “Alter”, “Geschlecht”, “questionnaire_item1” usw.)</li>
+<li><code>localcopy</code>: sollen die Daten lokal gespeichert werden? (z. B. “testdata.rds”)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> <span class="fu">loadexp</span>(<span class="st">"testdata"</span>, <span class="at">subdirs =</span> <span class="cn">TRUE</span>, <span class="at">splitresponse =</span> <span class="cn">TRUE</span>, <span class="at">localcopy =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Splitting responses...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Found 18 records...
+ Imported 18 records. Simplifying...</code></pre>
+</div>
+</div>
+</section>
+<section id="daten-inspizieren" class="level3">
+<h3 class="anchored" data-anchor-id="daten-inspizieren">Daten inspizieren</h3>
+<p>jsPsych gibt eine Zeile pro Trial aus. In diesem Beispiel ist die erste Zeile die Sprachauswahl, die zweite die Einwilligungserklärung, die dritte die Begrüßungsseite, dann eine Umfrage und ein paar rng-Trials Du kannst <code>print()</code> verwenden, um die ersten Zeilen anzuzeigen, <code>str()</code>, um einen Überblick über die Struktur zu erhalten, d.h. alle Variablen (Spalten) und ihre Typen, und <code>View()</code>, um die Daten in einem neuen RStudio-Tab zu betrachten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 102 × 26
+    file rt    stimulus             response trial_type trial_index time_elapsed
+   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;            &lt;int&gt;        &lt;int&gt;
+ 1     1 2704  "img/language-b.png" "0"      image-but…           0         2705
+ 2     1 1630  ""                   ""       external-…           1         4341
+ 3     1 777   ""                   ""       instructi…           2         5118
+ 4     1 3108  ""                   "{\"BLL… survey               3         8238
+ 5     1 null  "rng..."             "null"   html-keyb…           4         8290
+ 6     1 null  "rng..."             "null"   html-keyb…           5         8460
+ 7     1 null  "rng..."             "null"   html-keyb…           6         8569
+ 8     1 null  "rng..."             "null"   html-keyb…           7         8679
+ 9     1 null  "rng..."             "null"   html-keyb…           8         8786
+10     1 null  "rng..."             "null"   html-keyb…           9         8893
+# ℹ 92 more rows
+# ℹ 19 more variables: internal_node_id &lt;chr&gt;, study &lt;chr&gt;, subject &lt;chr&gt;,
+#   time &lt;dttm&gt;, condition &lt;chr&gt;, url &lt;chr&gt;, view_history &lt;chr&gt;,
+#   test_part &lt;chr&gt;, accuracy &lt;chr&gt;, qbit &lt;int&gt;, BLLS_1 &lt;int&gt;, BLLS_2 &lt;int&gt;,
+#   BLLS_3 &lt;int&gt;, BLLS_4 &lt;int&gt;, age &lt;int&gt;, gender &lt;chr&gt;, bildung &lt;chr&gt;,
+#   handaufsherz &lt;chr&gt;, ungewoehnlich &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [102 × 26] (S3: tbl_df/tbl/data.frame)
+ $ file            : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...
+ $ rt              : chr [1:102] "2704" "1630" "777" "3108" ...
+ $ stimulus        : chr [1:102] "img/language-b.png" "" "" "" ...
+ $ response        : chr [1:102] "0" "" "" "{\"BLLSIntro\":null,\"BLLS\":{\"BLLS_1\":0,\"BLLS_2\":1,\"BLLS_3\":2,\"BLLS_4\":3}}" ...
+ $ trial_type      : chr [1:102] "image-button-response" "external-html" "instructions" "survey" ...
+ $ trial_index     : int [1:102] 0 1 2 3 4 5 6 7 8 9 ...
+ $ time_elapsed    : int [1:102] 2705 4341 5118 8238 8290 8460 8569 8679 8786 8893 ...
+ $ internal_node_id: chr [1:102] "0.0-0.0" "0.0-1.0" "0.0-2.0" "0.0-3.0" ...
+ $ study           : chr [1:102] "testdata1" "testdata1" "testdata1" "testdata1" ...
+ $ subject         : chr [1:102] "sohh7gaopn0d6lm7" "sohh7gaopn0d6lm7" "sohh7gaopn0d6lm7" "sohh7gaopn0d6lm7" ...
+ $ time            : POSIXct[1:102], format: "2024-06-15 16:51:05" "2024-06-15 16:51:05" ...
+ $ condition       : chr [1:102] "exp" "exp" "exp" "exp" ...
+ $ url             : chr [1:102] "" "consent/consent_mm.html" "" "" ...
+ $ view_history    : chr [1:102] "" "" "[{\"page_index\":0,\"viewing_time\":777}]" "" ...
+ $ test_part       : chr [1:102] "" "" "welcome" "BLLS" ...
+ $ accuracy        : chr [1:102] "" "" "" "[]" ...
+ $ qbit            : int [1:102] NA NA NA NA 0 1 0 1 0 1 ...
+ $ BLLS_1          : int [1:102] 0 0 0 0 0 0 0 0 0 0 ...
+ $ BLLS_2          : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...
+ $ BLLS_3          : int [1:102] 2 2 2 2 2 2 2 2 2 2 ...
+ $ BLLS_4          : int [1:102] 3 3 3 3 3 3 3 3 3 3 ...
+ $ age             : int [1:102] 35 35 35 35 35 35 35 35 35 35 ...
+ $ gender          : chr [1:102] "männlich" "männlich" "männlich" "männlich" ...
+ $ bildung         : chr [1:102] "Fach- oder Hochschulreife (Abitur)" "Fach- oder Hochschulreife (Abitur)" "Fach- oder Hochschulreife (Abitur)" "Fach- oder Hochschulreife (Abitur)" ...
+ $ handaufsherz    : chr [1:102] "Ja" "Ja" "Ja" "Ja" ...
+ $ ungewoehnlich   : chr [1:102] "Alles tip top!" "Alles tip top!" "Alles tip top!" "Alles tip top!" ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Interessante Variablen:</p>
+<ul>
+<li>file: id der einzelnen Vp-Datei (zeitlich nicht geordnet)</li>
+<li>rt: Reaktionszeit in ms</li>
+<li>stimulus: präsentierter Stimulus/Text</li>
+<li>response: vom Teilnehmer gegebene Antwort (z.B. Taste, Button, Freitext)</li>
+<li>study: Name der Studie und Studienteil</li>
+<li>subject: Subject-Id</li>
+<li>time: Zeitpunkt der Datenerhebung (UTC+0)</li>
+<li>weitere Variablen, z. B. Bedingung, Gruppe, test_part, usw.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -683,13 +828,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./newproject.html" class="pagination-link" aria-label="Ein neues Projekt anlegen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ein neues Projekt anlegen</span>
+      <a href="./workwithgit.html" class="pagination-link" aria-label="Die Projekte aktuell halten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Die Projekte aktuell halten</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./getrawdata.html" class="pagination-link" aria-label="Rohdaten herunterladen">
-        <span class="nav-page-text">Rohdaten herunterladen</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./expfile.html" class="pagination-link" aria-label="Experimentalfile erstellen">
+        <span class="nav-page-text">Experimentalfile erstellen</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

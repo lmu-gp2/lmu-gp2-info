@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Die Projekte aktuell halten</title>
+<title>Experimentalfile erstellen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./getrawdata.html" rel="next">
-<link href="./newproject.html" rel="prev">
+<link href="./analysis.qmd" rel="next">
+<link href="./getrawdata.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lmu-gp2.html">Workflow</a></li><li class="breadcrumb-item"><a href="./workwithgit.html">Die Projekte aktuell halten</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getrawdata.html">Datenauswertung</a></li><li class="breadcrumb-item"><a href="./expfile.html">Experimentalfile erstellen</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -182,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./workwithgit.html" class="sidebar-item-text sidebar-link active">
+  <a href="./workwithgit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Die Projekte aktuell halten</span></a>
   </div>
 </li>
@@ -205,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./expfile.qmd" class="sidebar-item-text sidebar-link">
+  <a href="./expfile.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Experimentalfile erstellen</span></a>
   </div>
 </li>
@@ -234,14 +268,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tabelle-mit-1-zeile-pro-teilnehmer-erstellen" id="toc-tabelle-mit-1-zeile-pro-teilnehmer-erstellen" class="nav-link active" data-scroll-target="#tabelle-mit-1-zeile-pro-teilnehmer-erstellen">Tabelle mit 1 Zeile pro Teilnehmer erstellen</a></li>
+  <li><a href="#weitere-variablen-zum-data-frame-hinzufügen" id="toc-weitere-variablen-zum-data-frame-hinzufügen" class="nav-link" data-scroll-target="#weitere-variablen-zum-data-frame-hinzufügen">Weitere Variablen zum Data Frame hinzufügen</a></li>
+  <li><a href="#teilnehmer-ausschließen" id="toc-teilnehmer-ausschließen" class="nav-link" data-scroll-target="#teilnehmer-ausschließen">Teilnehmer ausschließen</a></li>
+  <li><a href="#data-frame-als-csv-speichern" id="toc-data-frame-als-csv-speichern" class="nav-link" data-scroll-target="#data-frame-als-csv-speichern">Data Frame als CSV speichern</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lmu-gp2.html">Workflow</a></li><li class="breadcrumb-item"><a href="./workwithgit.html">Die Projekte aktuell halten</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./getrawdata.html">Datenauswertung</a></li><li class="breadcrumb-item"><a href="./expfile.html">Experimentalfile erstellen</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Die Projekte aktuell halten</h1>
+<h1 class="title">Experimentalfile erstellen</h1>
 </div>
 
 
@@ -258,18 +301,158 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Da wir jetzt Git nutzen und ein <em>remote</em> auf Github besitzen, ändert sich der generelle Workflow etwas.</p>
-<ol type="1">
-<li><p>Analyseprojekt öffnen und mögliche Updates von Github <strong>pullen</strong>.</p></li>
-<li><p>Änderungen am Skript, Berechnungen, etc. durchführen und die Dateien <strong>speichern</strong>.</p></li>
-<li><p>Sind die Änderungen erfolgreich, den neuen Stand <strong>stagen</strong> (also die Kästchen im Git-Reiter aktivieren) und <strong>comitten</strong>. Dabei immer eine Nachricht eingeben.</p></li>
-<li><p>Den neuen Stand des Projekts wieder zu Github <strong>pushen</strong>.</p></li>
-</ol>
-<p>Man muss nicht nach jedem Commit pushen, sollte es aber regelmäßig tun.</p>
-<p>Die <strong>History</strong> im Git-Reiter erlaubt es dir, alle erfolgten Änderungen nachzuverfolgen. Man kann auch einen früheren Stand herstellen, allerdings nicht in RStudio, sondern nur via Code über das Terminal.</p>
-<p>Nachdem der generelle Workflow etabliert ist, schauen wir uns an, wie wir Daten vom Webserver laden und auswerten können.</p>
+<section id="tabelle-mit-1-zeile-pro-teilnehmer-erstellen" class="level3">
+<h3 class="anchored" data-anchor-id="tabelle-mit-1-zeile-pro-teilnehmer-erstellen">Tabelle mit 1 Zeile pro Teilnehmer erstellen</h3>
+<p>Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.</p>
+<p>Wichtige Funktionen:</p>
+<ul>
+<li><code>group_by()</code>: Datenrahmen nach einer Variablen gruppieren (um Variablen pro Teilnehmer und nicht für alle Teilnehmer zu berechnen).</li>
+<li><code>mutate()</code>: Hinzufügen neuer Variablen zum Data Frame.</li>
+<li><code>distinct()</code>: Nur einzigartige Zeilen behalten.</li>
+<li><code>select()</code>: Variablen (Spalten) auswählen.</li>
+<li><code>filter()</code>: Filtert Zeilen, die eine Bedingung erfüllen.</li>
+<li><code>rowwise()</code>: Werte pro Zeile (= Teilnehmer) berechnen. Dies ist nützlich bei der Berechnung von Fragebogenergebnissen. Auflösen mit <code>ungroup()</code>.</li>
+<li><code>summarise()</code>: Aggregiert Daten zu einer zusammenfassenden Statistik.</li>
+<li><code>pivot_wider()</code>: Mehrere Zeilen zu Spalten umwandeln.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_all <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span>                         <span class="co"># select raw data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(file) <span class="sc">%&gt;%</span>                      <span class="co"># group by file = participations</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hits =</span> <span class="fu">sum</span>(qbit, <span class="at">na.rm=</span>T)) <span class="sc">%&gt;%</span>   <span class="co"># sum up all qbits per file</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(file, <span class="at">.keep_all=</span>T) <span class="sc">%&gt;%</span>         <span class="co"># keep only one row per file</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(rt<span class="sc">:</span>internal_node_id, url<span class="sc">:</span>qbit)) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                                          <span class="co"># drop unnecessary columns</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(                                 <span class="co"># reverse score BLLS_3 and BLLS_4 (0 -&gt; 4; 4 -&gt; 0)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">BLLS_3 =</span> <span class="sc">-</span>BLLS_3<span class="sc">+</span><span class="dv">4</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">BLLS_4 =</span> <span class="sc">-</span>BLLS_4<span class="sc">+</span><span class="dv">4</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span>                                   </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(                                 <span class="co"># if multiple languages, recode to English</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">gender =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"männlich"</span>) <span class="sc">~</span> <span class="st">"male"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"female"</span>, <span class="st">"weiblich"</span>) <span class="sc">~</span> <span class="st">"female"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      gender <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"divers"</span>, <span class="st">"other"</span>) <span class="sc">~</span> <span class="st">"other"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span>                           <span class="co"># calculate scores per row / participant</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BLLS_score =</span> <span class="fu">mean</span>(<span class="fu">c</span>(BLLS_1, BLLS_2, BLLS_3, BLLS_4))) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                                          <span class="co"># mean score of BLLS_1 to BLLS_4</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span>                           <span class="co"># ungroup data frame</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(time)                           <span class="co"># sort by time of data collection</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 16
+   file study  subject time                condition BLLS_1 BLLS_2 BLLS_3 BLLS_4
+  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dttm&gt;              &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     1 testd… sohh7g… 2024-06-15 16:51:05 exp            0      1      2      1
+2     2 testd… u31kk1… 2024-06-15 16:51:36 exp            0      3      0      0
+3     3 testd… qlekt1… 2024-06-15 16:51:59 exp            1      0      4      2
+4     4 testd… rnlxf3… 2024-06-15 16:52:39 con            1      2      1      0
+5     5 testd… 6vmltu… 2024-06-16 12:18:22 con            3      3      0      0
+6     6 testd… pgbcm2… 2024-06-16 12:21:12 exp            0      4      1      3
+# ℹ 7 more variables: age &lt;int&gt;, gender &lt;chr&gt;, bildung &lt;chr&gt;,
+#   handaufsherz &lt;chr&gt;, ungewoehnlich &lt;chr&gt;, hits &lt;int&gt;, BLLS_score &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="weitere-variablen-zum-data-frame-hinzufügen" class="level3">
+<h3 class="anchored" data-anchor-id="weitere-variablen-zum-data-frame-hinzufügen">Weitere Variablen zum Data Frame hinzufügen</h3>
+<p>Möglicherweise gibt es in einigen Zeilen der Rohdaten Informationen, die wir unserem Experimentalfile hinzufügen möchten.</p>
+<p>Wir können <code>filter()</code> verwenden, um Trials (=Zeilen) mit den relevanten Informationen auszuwählen, und <code>mutate()</code>, um neue Variablen zu den vorhandenen hinzuzufügen, oder <code>summarise()</code>, um einen Datensatz nur mit neuen Variablen zu erstellen. Wir können <code>pivot_wider()</code> verwenden, um mehrere Zeilen von einem Teilnehmer in eine Zeile mit mehreren Spalten umzuwandeln. Wir können diese neuen Data Frame an den bestehenden Data Frame mit <code>left_join()</code> anhängen.</p>
+<p>In diesem Beispiel wollen wir die Antwort und die Reaktionszeit des button press trials sowie die einzelnen qbits jedes rng-trials hinzufügen.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to add the response of the button press trial and include the reaction times.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>buttonChoice <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(test_part<span class="sc">==</span><span class="st">"buttonChoice"</span>) <span class="sc">%&gt;%</span>   <span class="co"># filter for buttonChoice trials</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rt =</span> <span class="fu">as.numeric</span>(rt)) <span class="sc">%&gt;%</span>         <span class="co"># convert rt to numeric</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(file) <span class="sc">%&gt;%</span>                      <span class="co"># group by file = participations</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">buttonChoice =</span> response, <span class="at">rtChoice =</span> <span class="fu">mean</span>(rt))        </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                                          <span class="co"># print response and calculate mean reaction time per file (mean not actually necessary in case of 1 observation)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(buttonChoice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+   file buttonChoice rtChoice
+  &lt;int&gt; &lt;chr&gt;           &lt;dbl&gt;
+1     1 0                1003
+2     2 1                1679
+3     3 1                1351
+4     4 1                1251
+5     5 1                 965
+6     6 0                 999</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We want to have the qbits of each trial as separate variables</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>qbits <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(test_part<span class="sc">==</span><span class="st">"rngTrial"</span>) <span class="sc">%&gt;%</span>       <span class="co"># filter for qbit trials</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(file, qbit) <span class="sc">%&gt;%</span>                  <span class="co"># select variables "file" and "qbit"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trial =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">length</span>(<span class="fu">unique</span>(file)))) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                                          <span class="co"># create variable "trial" with values 1 to 10 to distinguish between trials</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> file, <span class="at">values_from =</span> qbit, <span class="at">names_from =</span> trial, <span class="at">names_prefix =</span> <span class="st">"qbit"</span>) </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                                          <span class="co"># create separate variables for each qbit</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(qbits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+   file qbit1 qbit2 qbit3 qbit4 qbit5 qbit6 qbit7 qbit8 qbit9 qbit10
+  &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;
+1     1     0     1     0     1     0     1     1     1     1      1
+2     2     1     0     0     0     1     1     0     0     0      1
+3     3     1     0     1     0     1     1     1     1     1      0
+4     4     1     1     1     0     0     1     0     0     1      0
+5     5     1     1     1     1     1     0     1     0     0      1
+6     6     0     0     1     1     0     1     0     1     0      0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the new variables to the data frame</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df_all <span class="ot">&lt;-</span> df_all <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(buttonChoice, <span class="at">by=</span><span class="st">"file"</span>) <span class="sc">%&gt;%</span>  <span class="co"># join buttonChoice to df_all</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(qbits, <span class="at">by=</span><span class="st">"file"</span>)             <span class="co"># join qbits to df_all</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 28
+   file study  subject time                condition BLLS_1 BLLS_2 BLLS_3 BLLS_4
+  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;dttm&gt;              &lt;chr&gt;      &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1     1 testd… sohh7g… 2024-06-15 16:51:05 exp            0      1      2      1
+2     2 testd… u31kk1… 2024-06-15 16:51:36 exp            0      3      0      0
+3     3 testd… qlekt1… 2024-06-15 16:51:59 exp            1      0      4      2
+4     4 testd… rnlxf3… 2024-06-15 16:52:39 con            1      2      1      0
+5     5 testd… 6vmltu… 2024-06-16 12:18:22 con            3      3      0      0
+6     6 testd… pgbcm2… 2024-06-16 12:21:12 exp            0      4      1      3
+# ℹ 19 more variables: age &lt;int&gt;, gender &lt;chr&gt;, bildung &lt;chr&gt;,
+#   handaufsherz &lt;chr&gt;, ungewoehnlich &lt;chr&gt;, hits &lt;int&gt;, BLLS_score &lt;dbl&gt;,
+#   buttonChoice &lt;chr&gt;, rtChoice &lt;dbl&gt;, qbit1 &lt;int&gt;, qbit2 &lt;int&gt;, qbit3 &lt;int&gt;,
+#   qbit4 &lt;int&gt;, qbit5 &lt;int&gt;, qbit6 &lt;int&gt;, qbit7 &lt;int&gt;, qbit8 &lt;int&gt;,
+#   qbit9 &lt;int&gt;, qbit10 &lt;int&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="teilnehmer-ausschließen" class="level3">
+<h3 class="anchored" data-anchor-id="teilnehmer-ausschließen">Teilnehmer ausschließen</h3>
+<p>Wir haben erfolgreich einen Data Frame mit 1 Zeile pro Teilnehmer erstellt. Nun möchten wir Teilnehmer ausschließen, die nicht in die Analyse einbezogen werden sollen. Dabei kann es sich um doppelte Teilnahmen, minderjährige Teilnehmer oder Teilnehmer handeln, die bei der Hand aufs Herz-Frage durchgefallen sind.</p>
+<p>Wir können <code>filter()</code> verwenden, um Teilnehmer auf der Grundlage einer Bedingung auszuschließen, und <code>distinct()</code>, um nur eindeutige Teilnahmen eines Teilnehmers zu erhalten.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if there are duplicate subject ids</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anyDuplicated</span>(df_all<span class="sc">$</span>subject)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create final data frame</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df_all <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(subject, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  <span class="co"># keep only the first participation if a subject id is duplicated</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(handaufsherz <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Ja"</span>, <span class="st">"Yes"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>                                           <span class="co"># filter for participants who answered the data integrity question correctly</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>)                        <span class="co"># use only participants over 18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-frame-als-csv-speichern" class="level3">
+<h3 class="anchored" data-anchor-id="data-frame-als-csv-speichern">Data Frame als CSV speichern</h3>
+<p>Wir können die Daten mit <code>write_csv2()</code> als .csv-Datei speichern, um sie z.B. mit JASP zu analysieren.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(df, <span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -683,13 +866,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./newproject.html" class="pagination-link" aria-label="Ein neues Projekt anlegen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ein neues Projekt anlegen</span>
+      <a href="./getrawdata.html" class="pagination-link" aria-label="Rohdaten herunterladen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Rohdaten herunterladen</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./getrawdata.html" class="pagination-link" aria-label="Rohdaten herunterladen">
-        <span class="nav-page-text">Rohdaten herunterladen</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./analysis.qmd" class="pagination-link" aria-label="Datenanalyse">
+        <span class="nav-page-text">Datenanalyse</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

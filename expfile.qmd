@@ -1,0 +1,121 @@
+---
+title: "Experimentalfile erstellen"
+format: html
+editor: visual
+---
+
+### Tabelle mit 1 Zeile pro Teilnehmer erstellen
+
+Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln.
+Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.
+
+Wichtige Funktionen:
+
+- `group_by()`: Datenrahmen nach einer Variablen gruppieren (um Variablen pro Teilnehmer und nicht für alle Teilnehmer zu berechnen).
+- `mutate()`: Hinzufügen neuer Variablen zum Data Frame.
+- `distinct()`: Nur einzigartige Zeilen behalten.
+- `select()`: Variablen (Spalten) auswählen.
+- `filter()`: Filtert Zeilen, die eine Bedingung erfüllen.
+- `rowwise()`: Werte pro Zeile (= Teilnehmer) berechnen. Dies ist nützlich bei der Berechnung von Fragebogenergebnissen. Auflösen mit `ungroup()`.
+- `summarise()`: Aggregiert Daten zu einer zusammenfassenden Statistik.
+- `pivot_wider()`: Mehrere Zeilen zu Spalten umwandeln.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(qpsy)
+library(tidyverse)
+raw <- loadexp("testdata", subdirs = TRUE, splitresponse = TRUE, localcopy = TRUE)
+```
+
+```{r}
+df_all <- raw %>%                         # select raw data
+  group_by(file) %>%                      # group by file = participations
+  mutate(hits = sum(qbit, na.rm=T)) %>%   # sum up all qbits per file
+  distinct(file, .keep_all=T) %>%         # keep only one row per file
+  select(-c(rt:internal_node_id, url:qbit)) %>% 
+                                          # drop unnecessary columns
+  mutate(                                 # reverse score BLLS_3 and BLLS_4 (0 -> 4; 4 -> 0)
+    BLLS_3 = -BLLS_3+4,
+    BLLS_4 = -BLLS_4+4,
+  ) %>%                                   
+  mutate(                                 # if multiple languages, recode to English
+    gender = case_when(
+      gender %in% c("male", "männlich") ~ "male",
+      gender %in% c("female", "weiblich") ~ "female",
+      gender %in% c("divers", "other") ~ "other"
+    )
+  ) %>%
+  rowwise() %>%                           # calculate scores per row / participant
+  mutate(BLLS_score = mean(c(BLLS_1, BLLS_2, BLLS_3, BLLS_4))) %>% 
+                                          # mean score of BLLS_1 to BLLS_4
+  ungroup() %>%                           # ungroup data frame
+  arrange(time)                           # sort by time of data collection
+
+print(df_all)
+
+```
+
+### Weitere Variablen zum Data Frame hinzufügen
+
+Möglicherweise gibt es in einigen Zeilen der Rohdaten Informationen, die wir unserem Experimentalfile hinzufügen möchten.
+
+Wir können `filter()` verwenden, um Trials (=Zeilen) mit den relevanten Informationen auszuwählen, und `mutate()`, um neue Variablen zu den vorhandenen hinzuzufügen, oder `summarise()`, um einen Datensatz nur mit neuen Variablen zu erstellen.
+Wir können `pivot_wider()` verwenden, um mehrere Zeilen von einem Teilnehmer in eine Zeile mit mehreren Spalten umzuwandeln. Wir können diese neuen Data Frame an den bestehenden Data Frame mit `left_join()` anhängen.
+
+In diesem Beispiel wollen wir die Antwort und die Reaktionszeit des button press trials sowie die einzelnen qbits jedes rng-trials hinzufügen.
+
+```{r}
+# We want to add the response of the button press trial and include the reaction times.
+buttonChoice <- raw %>%
+  filter(test_part=="buttonChoice") %>%   # filter for buttonChoice trials
+  mutate(rt = as.numeric(rt)) %>%         # convert rt to numeric
+  group_by(file) %>%                      # group by file = participations
+  summarise(buttonChoice = response, rtChoice = mean(rt))        
+                                          # print response and calculate mean reaction time per file (mean not actually necessary in case of 1 observation)
+
+print(buttonChoice)
+
+# We want to have the qbits of each trial as separate variables
+qbits <- raw %>%
+  filter(test_part=="rngTrial") %>%       # filter for qbit trials
+  select(file, qbit) %>%                  # select variables "file" and "qbit"
+  mutate(trial = rep(1:10, length(unique(file)))) %>% 
+                                          # create variable "trial" with values 1 to 10 to distinguish between trials
+  pivot_wider(id_cols = file, values_from = qbit, names_from = trial, names_prefix = "qbit") 
+                                          # create separate variables for each qbit
+
+print(qbits)
+
+# Merge the new variables to the data frame
+df_all <- df_all %>%
+  left_join(buttonChoice, by="file") %>%  # join buttonChoice to df_all
+  left_join(qbits, by="file")             # join qbits to df_all
+
+print(df_all)
+```
+
+### Teilnehmer ausschließen
+
+Wir haben erfolgreich einen Data Frame mit 1 Zeile pro Teilnehmer erstellt. Nun möchten wir Teilnehmer ausschließen, die nicht in die Analyse einbezogen werden sollen. Dabei kann es sich um doppelte Teilnahmen, minderjährige Teilnehmer oder Teilnehmer handeln, die bei der Hand aufs Herz-Frage durchgefallen sind.
+
+Wir können `filter()` verwenden, um Teilnehmer auf der Grundlage einer Bedingung auszuschließen, und `distinct()`, um nur eindeutige Teilnahmen eines Teilnehmers zu erhalten.
+
+```{r}
+# Check if there are duplicate subject ids
+anyDuplicated(df_all$subject)
+
+# Create final data frame
+df <- df_all %>%
+  distinct(subject, .keep_all = TRUE) %>%  # keep only the first participation if a subject id is duplicated
+  filter(handaufsherz %in% c("Ja", "Yes")) %>% 
+                                           # filter for participants who answered the data integrity question correctly
+  filter(age >= 18)                        # use only participants over 18
+```
+
+### Data Frame als CSV speichern
+
+Wir können die Daten mit `write_csv2()` als .csv-Datei speichern, um sie z.B. mit JASP zu analysieren.
+
+```{r}
+write_csv2(df, "testdata.csv")
+```
+

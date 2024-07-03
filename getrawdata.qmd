@@ -1,0 +1,56 @@
+---
+title: "Rohdaten herunterladen"
+format: html
+editor: visual
+---
+
+::: callout-tip
+## Ressourcen
+
+Dieser Teil ist angelehnt an die [qpsy Vignette](https://mrzdcmps.github.io/qpsy/vignette-qpsy.html).
+:::
+
+Als erstes wollen wir die Experimentaldaten vom Webserver laden. Dort sind sie als .csv-Dateien (comma separated values) gespeichert. Wir haben eine Datei pro Teilnahme mit einer Zeile pro Trial (dabei zählen auch *Willkommen*, *Einverständniserklärung*, etc. als Trial).
+
+Beim importieren der Rohdaten werden alle Dateien aneinander gehängt und bilden so eine Tabelle mit vielen Zeilen. Wir wollen diese Rohdatentabelle in ein Experimentalfile transformieren, welches 1 Zeile pro VP besitzt und in dem alle nötigen Variablen als Spalten vorhanden sind.
+
+### Load Libraries
+
+```{r load-libraries, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+library(qpsy)
+library(tidyverse)
+```
+
+### Rohdaten vom Server importieren
+
+`loadexp()` lädt die Rohdaten direkt vom Server herunter. Die Funktion hat mehrere Argumente:
+
+-   `study`: das Verzeichnis der Studiendaten (z. B. "testdata" oder "testdata/study2")
+-   `subdirs`: sollen Unterverzeichnisse einbezogen werden? (z. B. mehrere Studienteile "study1" und "study2" oder Dateien von verschiedenen Versuchsleitern).
+-   `splitresponse`: sollen die Antworten auf Fragebogentrials als separate Variablen gespeichert werden? (z. B. "Alter", "Geschlecht", "questionnaire_item1" usw.)
+-   `localcopy`: sollen die Daten lokal gespeichert werden? (z. B. "testdata.rds")
+
+```{r}
+raw <- loadexp("testdata", subdirs = TRUE, splitresponse = TRUE, localcopy = TRUE)
+```
+
+### Daten inspizieren
+
+jsPsych gibt eine Zeile pro Trial aus. In diesem Beispiel ist die erste Zeile die Sprachauswahl, die zweite die Einwilligungserklärung, die dritte die Begrüßungsseite, dann eine Umfrage und ein paar rng-Trials Du kannst `print()` verwenden, um die ersten Zeilen anzuzeigen, `str()`, um einen Überblick über die Struktur zu erhalten, d.h. alle Variablen (Spalten) und ihre Typen, und `View()`, um die Daten in einem neuen RStudio-Tab zu betrachten.
+
+```{r}
+print(raw)
+str(raw)
+View(raw)
+```
+
+Interessante Variablen:
+
+-   file: id der einzelnen Vp-Datei (zeitlich nicht geordnet)
+-   rt: Reaktionszeit in ms
+-   stimulus: präsentierter Stimulus/Text
+-   response: vom Teilnehmer gegebene Antwort (z.B. Taste, Button, Freitext)
+-   study: Name der Studie und Studienteil
+-   subject: Subject-Id
+-   time: Zeitpunkt der Datenerhebung (UTC+0)
+-   weitere Variablen, z. B. Bedingung, Gruppe, test_part, usw.

@@ -17,3 +17,5 @@ Da wir jetzt Git nutzen und ein *remote* auf Github besitzen, ändert sich der g
 Man muss nicht nach jedem Commit pushen, sollte es aber regelmäßig tun.
 
 Die **History** im Git-Reiter erlaubt es dir, alle erfolgten Änderungen nachzuverfolgen. Man kann auch einen früheren Stand herstellen, allerdings nicht in RStudio, sondern nur via Code über das Terminal.
+
+Nachdem der generelle Workflow etabliert ist, schauen wir uns an, wie wir Daten vom Webserver laden und auswerten können.
