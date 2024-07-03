@@ -2,5 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+config.yml
+testdata.csv
+raw_testdata.rds
 
 /.quarto/
