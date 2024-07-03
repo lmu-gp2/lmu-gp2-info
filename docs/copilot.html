@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Moritz Dechamps">
 
-<title>Willkommen</title>
+<title>Copilot: Die Power der KI nutzen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./rco.html" rel="next">
+<link href="./analysis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Überblick</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./copilot.html">Bonus: Copilot</a></li><li class="breadcrumb-item"><a href="./copilot.html">Copilot: Die Power der KI nutzen</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -120,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Überblick</span></a>
   </div>
 </li>
@@ -228,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./copilot.html" class="sidebar-item-text sidebar-link">
+  <a href="./copilot.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Copilot: Die Power der KI nutzen</span></a>
   </div>
 </li>
@@ -244,28 +277,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#über-diesen-workshop" id="toc-über-diesen-workshop" class="nav-link active" data-scroll-target="#über-diesen-workshop">Über diesen Workshop</a></li>
+  <li><a href="#github-education-account-aktivieren" id="toc-github-education-account-aktivieren" class="nav-link active" data-scroll-target="#github-education-account-aktivieren">Github Education Account aktivieren</a></li>
+  <li><a href="#aktiviere-copilot-in-github" id="toc-aktiviere-copilot-in-github" class="nav-link" data-scroll-target="#aktiviere-copilot-in-github">Aktiviere Copilot in Github</a></li>
+  <li><a href="#aktiviere-copilot-in-rstudio" id="toc-aktiviere-copilot-in-rstudio" class="nav-link" data-scroll-target="#aktiviere-copilot-in-rstudio">Aktiviere Copilot in RStudio</a></li>
+  <li><a href="#arbeite-mit-copilot" id="toc-arbeite-mit-copilot" class="nav-link" data-scroll-target="#arbeite-mit-copilot">Arbeite mit Copilot</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./copilot.html">Bonus: Copilot</a></li><li class="breadcrumb-item"><a href="./copilot.html">Copilot: Die Power der KI nutzen</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Willkommen</h1>
+<h1 class="title">Copilot: Die Power der KI nutzen</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Moritz Dechamps </p>
-          </div>
-  </div>
     
   
     
@@ -276,32 +306,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="über-diesen-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="über-diesen-workshop">Über diesen Workshop</h2>
-<p>Dieser Workshop richtet sich an Mitarbeiter und Doktoranden des Lehrstuhls <em>Allgemeine Psychologie 2</em> der LMU München. Auch interessierte Studierende, die Ihre Abschlussarbeit am Lehrstuhl schreiben können teilnehmen. Er soll einen Überblick liefern, wie</p>
-<ul>
-<li>Rohdaten vom Webserver (qpsy) geladen werden</li>
-<li>Neue Analyseprojekte mit RStudio angelegt werden</li>
-<li>Projekte zur Kooperation über Github zur Verfügung gestellt werden</li>
-<li>Experimentalfiles aus den Rohdaten generiert werden</li>
-<li>Erste Analysen der Daten erfolgen können</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Ressourcen
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://lmu-osc.github.io/introduction-to-R/">Introduction to R</a></p>
-<p><a href="https://lmu-osc.github.io/Introduction-RStudio-Git-GitHub/">Introduction to version Control in R with RStudio, Git, and Github</a></p>
-<p><a href="https://lmu-osc.github.io/Collaborative-RStudio-GitHub/">Collaborative coding with GitHub and RStudio</a></p>
-<p><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></p>
-</div>
-</div>
+<p>Als Dozierende oder Studierende der LMU können wir einen kostenlosen Github Pro-Account beantragen und Githubs eigene KI <strong>Copilot</strong> nutzen.</p>
+<section id="github-education-account-aktivieren" class="level2">
+<h2 class="anchored" data-anchor-id="github-education-account-aktivieren">Github Education Account aktivieren</h2>
+<ol type="1">
+<li><p>Gehe zu <a href="https://github.com/education/students">Github Education</a> und klicke auf <em>Join Github Education</em></p></li>
+<li><p>Falls Dein Account nicht mit der LMU-Emailadresse registriert wurde, füge sie nun hinzu.</p></li>
+<li><p>Suche <strong>Ludwig Maximilian University of Munich</strong> in der Liste der Schulen.</p></li>
+<li><p>Beantworte die Fragen zur Nutzung.</p></li>
+</ol>
+</section>
+<section id="aktiviere-copilot-in-github" class="level2">
+<h2 class="anchored" data-anchor-id="aktiviere-copilot-in-github">Aktiviere Copilot in Github</h2>
+<p>Gehe zu <a href="https://copilot.github.com/">Github Copilot</a> und klicke auf <em>Sign in with GitHub</em></p>
+<p>oder</p>
+<p>Gehe in deine <a href="https://github.com/settings/copilot">Github-Einstellungen</a> und aktiviere Copilot.</p>
+</section>
+<section id="aktiviere-copilot-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="aktiviere-copilot-in-rstudio">Aktiviere Copilot in RStudio</h2>
+<ol type="1">
+<li>Gehe in die Einstellungen unter <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Copilot</em> und aktiviere die Nutzung von Copilot.</li>
+<li>Entscheide, ob du Vorschläge automatisch oder manuell erhalten möchtest.</li>
+<li>Logge Dich in Deinen Github-Account ein.</li>
+</ol>
+</section>
+<section id="arbeite-mit-copilot" class="level2">
+<h2 class="anchored" data-anchor-id="arbeite-mit-copilot">Arbeite mit Copilot</h2>
+<p>Am Besten funktioniert Copilot, wenn du ihm genau sagst, was du tun möchtest. Dafür eignen sich Kommentare im Code. Diese beginnen mit einer Raute <code>#</code> und einem Leerzeichen. Hier ein Beispiel:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Berechne die Summe der Zahlen 1 bis 10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -718,11 +751,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./analysis.html" class="pagination-link" aria-label="Datenanalyse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datenanalyse</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./rco.html" class="pagination-link" aria-label="R und co.">
-        <span class="nav-page-text">R und co.</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

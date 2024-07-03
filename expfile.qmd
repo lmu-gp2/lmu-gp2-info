@@ -6,19 +6,18 @@ editor: visual
 
 ### Tabelle mit 1 Zeile pro Teilnehmer erstellen
 
-Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln.
-Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.
+Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.
 
 Wichtige Funktionen:
 
-- `group_by()`: Datenrahmen nach einer Variablen gruppieren (um Variablen pro Teilnehmer und nicht für alle Teilnehmer zu berechnen).
-- `mutate()`: Hinzufügen neuer Variablen zum Data Frame.
-- `distinct()`: Nur einzigartige Zeilen behalten.
-- `select()`: Variablen (Spalten) auswählen.
-- `filter()`: Filtert Zeilen, die eine Bedingung erfüllen.
-- `rowwise()`: Werte pro Zeile (= Teilnehmer) berechnen. Dies ist nützlich bei der Berechnung von Fragebogenergebnissen. Auflösen mit `ungroup()`.
-- `summarise()`: Aggregiert Daten zu einer zusammenfassenden Statistik.
-- `pivot_wider()`: Mehrere Zeilen zu Spalten umwandeln.
+-   `group_by()`: Datenrahmen nach einer Variablen gruppieren (um Variablen pro Teilnehmer und nicht für alle Teilnehmer zu berechnen).
+-   `mutate()`: Hinzufügen neuer Variablen zum Data Frame.
+-   `distinct()`: Nur einzigartige Zeilen behalten.
+-   `select()`: Variablen (Spalten) auswählen.
+-   `filter()`: Filtert Zeilen, die eine Bedingung erfüllen.
+-   `rowwise()`: Werte pro Zeile (= Teilnehmer) berechnen. Dies ist nützlich bei der Berechnung von Fragebogenergebnissen. Auflösen mit `ungroup()`.
+-   `summarise()`: Aggregiert Daten zu einer zusammenfassenden Statistik.
+-   `pivot_wider()`: Mehrere Zeilen zu Spalten umwandeln.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(qpsy)
@@ -58,8 +57,7 @@ print(df_all)
 
 Möglicherweise gibt es in einigen Zeilen der Rohdaten Informationen, die wir unserem Experimentalfile hinzufügen möchten.
 
-Wir können `filter()` verwenden, um Trials (=Zeilen) mit den relevanten Informationen auszuwählen, und `mutate()`, um neue Variablen zu den vorhandenen hinzuzufügen, oder `summarise()`, um einen Datensatz nur mit neuen Variablen zu erstellen.
-Wir können `pivot_wider()` verwenden, um mehrere Zeilen von einem Teilnehmer in eine Zeile mit mehreren Spalten umzuwandeln. Wir können diese neuen Data Frame an den bestehenden Data Frame mit `left_join()` anhängen.
+Wir können `filter()` verwenden, um Trials (=Zeilen) mit den relevanten Informationen auszuwählen, und `mutate()`, um neue Variablen zu den vorhandenen hinzuzufügen, oder `summarise()`, um einen Datensatz nur mit neuen Variablen zu erstellen. Wir können `pivot_wider()` verwenden, um mehrere Zeilen von einem Teilnehmer in eine Zeile mit mehreren Spalten umzuwandeln. Wir können diese neuen Data Frame an den bestehenden Data Frame mit `left_join()` anhängen.
 
 In diesem Beispiel wollen wir die Antwort und die Reaktionszeit des button press trials sowie die einzelnen qbits jedes rng-trials hinzufügen.
 
@@ -118,4 +116,3 @@ Wir können die Daten mit `write_csv2()` als .csv-Datei speichern, um sie z.B. m
 ```{r}
 write_csv2(df, "testdata.csv")
 ```
-

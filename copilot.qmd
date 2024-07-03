@@ -1,0 +1,40 @@
+---
+title: "Copilot: Die Power der KI nutzen"
+format: html
+editor: visual
+---
+
+Als Dozierende oder Studierende der LMU können wir einen kostenlosen Github Pro-Account beantragen und Githubs eigene KI **Copilot** nutzen.
+
+## Github Education Account aktivieren
+
+1.  Gehe zu [Github Education](https://github.com/education/students) und klicke auf *Join Github Education*
+
+2.  Falls Dein Account nicht mit der LMU-Emailadresse registriert wurde, füge sie nun hinzu.
+
+3.  Suche **Ludwig Maximilian University of Munich** in der Liste der Schulen.
+
+4.  Beantworte die Fragen zur Nutzung.
+
+## Aktiviere Copilot in Github
+
+Gehe zu [Github Copilot](https://copilot.github.com/) und klicke auf *Sign in with GitHub*
+
+oder
+
+Gehe in deine [Github-Einstellungen](https://github.com/settings/copilot) und aktiviere Copilot.
+
+## Aktiviere Copilot in RStudio
+
+1.  Gehe in die Einstellungen unter *Tools* \> *Global Options* \> *Copilot* und aktiviere die Nutzung von Copilot.
+2.  Entscheide, ob du Vorschläge automatisch oder manuell erhalten möchtest.
+3.  Logge Dich in Deinen Github-Account ein.
+
+## Arbeite mit Copilot
+
+Am Besten funktioniert Copilot, wenn du ihm genau sagst, was du tun möchtest. Dafür eignen sich Kommentare im Code. Diese beginnen mit einer Raute `#` und einem Leerzeichen. Hier ein Beispiel:
+
+``` r
+# Berechne die Summe der Zahlen 1 bis 10
+sum(1:10)
+```

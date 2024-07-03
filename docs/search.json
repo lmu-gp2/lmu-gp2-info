@@ -110,14 +110,24 @@
     "href": "cloneproject.html",
     "title": "Ein Projekt klonen",
     "section": "",
-    "text": "Beispiele:"
+    "text": "Beispiele:",
+    "crumbs": [
+      "Home",
+      "Workflow",
+      "Ein Projekt klonen"
+    ]
   },
   {
     "objectID": "cloneproject.html#vorgehen",
     "href": "cloneproject.html#vorgehen",
     "title": "Ein Projekt klonen",
     "section": "Vorgehen",
-    "text": "Vorgehen\n1. Überprüfen, dass das Repo bereits auf Github angelegt ist\nhttps://github.com/orgs/lmu-gp2/repositories\n\n2. Den Link zum Repo kopieren\nAuf das Repositorium klicken, den grünen Code-Button anklicken und den Link mit dem Kopieren-Symbol in die Zwischenablage kopieren.\n\n3. Ein neues RStudio-Projekt “Version Control” anlegen und das Repo klonen\nRStudio &gt; New Project &gt; Version Control &gt; Git\n\nKopierten Link bei Repository URL einfügen und lokalen Speicherort aussuchen.\n\n4. Skript öffnen und loslegen\nDas R-Skript, z.B. testdata1.R öffnen und ausführen. Ihr habt jetzt das fertige Analyseprojekt auf Eurem Rechner!"
+    "text": "Vorgehen\n1. Überprüfen, dass das Repo bereits auf Github angelegt ist\nhttps://github.com/orgs/lmu-gp2/repositories\n\n2. Den Link zum Repo kopieren\nAuf das Repositorium klicken, den grünen Code-Button anklicken und den Link mit dem Kopieren-Symbol in die Zwischenablage kopieren.\n\n3. Ein neues RStudio-Projekt “Version Control” anlegen und das Repo klonen\nRStudio &gt; New Project &gt; Version Control &gt; Git\n\nKopierten Link bei Repository URL einfügen und lokalen Speicherort aussuchen.\n\n4. Skript öffnen und loslegen\nDas R-Skript, z.B. testdata1.R öffnen und ausführen. Ihr habt jetzt das fertige Analyseprojekt auf Eurem Rechner!",
+    "crumbs": [
+      "Home",
+      "Workflow",
+      "Ein Projekt klonen"
+    ]
   },
   {
     "objectID": "github.html",
@@ -268,7 +278,7 @@
     "href": "getrawdata.html",
     "title": "Rohdaten herunterladen",
     "section": "",
-    "text": "Ressourcen\n\n\n\nDieser Teil ist angelehnt an die qpsy Vignette.\n\n\nAls erstes wollen wir die Experimentaldaten vom Webserver laden. Dort sind sie als .csv-Dateien (comma separated values) gespeichert. Wir haben eine Datei pro Teilnahme mit einer Zeile pro Trial (dabei zählen auch Willkommen, Einverständniserklärung, etc. als Trial).\nBeim importieren der Rohdaten werden alle Dateien aneinander gehängt und bilden so eine Tabelle mit vielen Zeilen. Wir wollen diese Rohdatentabelle in ein Experimentalfile transformieren, welches 1 Zeile pro VP besitzt und in dem alle nötigen Variablen als Spalten vorhanden sind.\n\nLoad Libraries\n\nlibrary(qpsy)\nlibrary(tidyverse)\n\n\n\nRohdaten vom Server importieren\nloadexp() lädt die Rohdaten direkt vom Server herunter. Die Funktion hat mehrere Argumente:\n\nstudy: das Verzeichnis der Studiendaten (z. B. “testdata” oder “testdata/study2”)\nsubdirs: sollen Unterverzeichnisse einbezogen werden? (z. B. mehrere Studienteile “study1” und “study2” oder Dateien von verschiedenen Versuchsleitern).\nsplitresponse: sollen die Antworten auf Fragebogentrials als separate Variablen gespeichert werden? (z. B. “Alter”, “Geschlecht”, “questionnaire_item1” usw.)\nlocalcopy: sollen die Daten lokal gespeichert werden? (z. B. “testdata.rds”)\n\n\nraw &lt;- loadexp(\"testdata\", subdirs = TRUE, splitresponse = TRUE, localcopy = TRUE)\n\nSplitting responses...\n\n\n\n Found 18 records...\n Imported 18 records. Simplifying...\n\n\n\n\nDaten inspizieren\njsPsych gibt eine Zeile pro Trial aus. In diesem Beispiel ist die erste Zeile die Sprachauswahl, die zweite die Einwilligungserklärung, die dritte die Begrüßungsseite, dann eine Umfrage und ein paar rng-Trials Du kannst print() verwenden, um die ersten Zeilen anzuzeigen, str(), um einen Überblick über die Struktur zu erhalten, d.h. alle Variablen (Spalten) und ihre Typen, und View(), um die Daten in einem neuen RStudio-Tab zu betrachten.\n\nprint(raw)\n\n# A tibble: 102 × 26\n    file rt    stimulus             response trial_type trial_index time_elapsed\n   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;            &lt;int&gt;        &lt;int&gt;\n 1     1 2704  \"img/language-b.png\" \"0\"      image-but…           0         2705\n 2     1 1630  \"\"                   \"\"       external-…           1         4341\n 3     1 777   \"\"                   \"\"       instructi…           2         5118\n 4     1 3108  \"\"                   \"{\\\"BLL… survey               3         8238\n 5     1 null  \"rng...\"             \"null\"   html-keyb…           4         8290\n 6     1 null  \"rng...\"             \"null\"   html-keyb…           5         8460\n 7     1 null  \"rng...\"             \"null\"   html-keyb…           6         8569\n 8     1 null  \"rng...\"             \"null\"   html-keyb…           7         8679\n 9     1 null  \"rng...\"             \"null\"   html-keyb…           8         8786\n10     1 null  \"rng...\"             \"null\"   html-keyb…           9         8893\n# ℹ 92 more rows\n# ℹ 19 more variables: internal_node_id &lt;chr&gt;, study &lt;chr&gt;, subject &lt;chr&gt;,\n#   time &lt;dttm&gt;, condition &lt;chr&gt;, url &lt;chr&gt;, view_history &lt;chr&gt;,\n#   test_part &lt;chr&gt;, accuracy &lt;chr&gt;, qbit &lt;int&gt;, BLLS_1 &lt;int&gt;, BLLS_2 &lt;int&gt;,\n#   BLLS_3 &lt;int&gt;, BLLS_4 &lt;int&gt;, age &lt;int&gt;, gender &lt;chr&gt;, bildung &lt;chr&gt;,\n#   handaufsherz &lt;chr&gt;, ungewoehnlich &lt;chr&gt;\n\nstr(raw)\n\ntibble [102 × 26] (S3: tbl_df/tbl/data.frame)\n $ file            : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...\n $ rt              : chr [1:102] \"2704\" \"1630\" \"777\" \"3108\" ...\n $ stimulus        : chr [1:102] \"img/language-b.png\" \"\" \"\" \"\" ...\n $ response        : chr [1:102] \"0\" \"\" \"\" \"{\\\"BLLSIntro\\\":null,\\\"BLLS\\\":{\\\"BLLS_1\\\":0,\\\"BLLS_2\\\":1,\\\"BLLS_3\\\":2,\\\"BLLS_4\\\":3}}\" ...\n $ trial_type      : chr [1:102] \"image-button-response\" \"external-html\" \"instructions\" \"survey\" ...\n $ trial_index     : int [1:102] 0 1 2 3 4 5 6 7 8 9 ...\n $ time_elapsed    : int [1:102] 2705 4341 5118 8238 8290 8460 8569 8679 8786 8893 ...\n $ internal_node_id: chr [1:102] \"0.0-0.0\" \"0.0-1.0\" \"0.0-2.0\" \"0.0-3.0\" ...\n $ study           : chr [1:102] \"testdata1\" \"testdata1\" \"testdata1\" \"testdata1\" ...\n $ subject         : chr [1:102] \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" ...\n $ time            : POSIXct[1:102], format: \"2024-06-15 16:51:05\" \"2024-06-15 16:51:05\" ...\n $ condition       : chr [1:102] \"exp\" \"exp\" \"exp\" \"exp\" ...\n $ url             : chr [1:102] \"\" \"consent/consent_mm.html\" \"\" \"\" ...\n $ view_history    : chr [1:102] \"\" \"\" \"[{\\\"page_index\\\":0,\\\"viewing_time\\\":777}]\" \"\" ...\n $ test_part       : chr [1:102] \"\" \"\" \"welcome\" \"BLLS\" ...\n $ accuracy        : chr [1:102] \"\" \"\" \"\" \"[]\" ...\n $ qbit            : int [1:102] NA NA NA NA 0 1 0 1 0 1 ...\n $ BLLS_1          : int [1:102] 0 0 0 0 0 0 0 0 0 0 ...\n $ BLLS_2          : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...\n $ BLLS_3          : int [1:102] 2 2 2 2 2 2 2 2 2 2 ...\n $ BLLS_4          : int [1:102] 3 3 3 3 3 3 3 3 3 3 ...\n $ age             : int [1:102] 35 35 35 35 35 35 35 35 35 35 ...\n $ gender          : chr [1:102] \"männlich\" \"männlich\" \"männlich\" \"männlich\" ...\n $ bildung         : chr [1:102] \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" ...\n $ handaufsherz    : chr [1:102] \"Ja\" \"Ja\" \"Ja\" \"Ja\" ...\n $ ungewoehnlich   : chr [1:102] \"Alles tip top!\" \"Alles tip top!\" \"Alles tip top!\" \"Alles tip top!\" ...\n\nView(raw)\n\nInteressante Variablen:\n\nfile: id der einzelnen Vp-Datei (zeitlich nicht geordnet)\nrt: Reaktionszeit in ms\nstimulus: präsentierter Stimulus/Text\nresponse: vom Teilnehmer gegebene Antwort (z.B. Taste, Button, Freitext)\nstudy: Name der Studie und Studienteil\nsubject: Subject-Id\ntime: Zeitpunkt der Datenerhebung (UTC+0)\nweitere Variablen, z. B. Bedingung, Gruppe, test_part, usw.",
+    "text": "Ressourcen\n\n\n\nDieser Teil ist angelehnt an die qpsy Vignette.\n\n\nAls erstes wollen wir die Experimentaldaten vom Webserver laden. Dort sind sie als .csv-Dateien (comma separated values) gespeichert. Wir haben eine Datei pro Teilnahme mit einer Zeile pro Trial (dabei zählen auch Willkommen, Einverständniserklärung, etc. als Trial).\nBeim importieren der Rohdaten werden alle Dateien aneinander gehängt und bilden so eine Tabelle mit vielen Zeilen. Wir wollen diese Rohdatentabelle in ein Experimentalfile transformieren, welches 1 Zeile pro VP besitzt und in dem alle nötigen Variablen als Spalten vorhanden sind.\n\nLoad Libraries\n\nlibrary(qpsy)\nlibrary(tidyverse)\n\n\n\nRohdaten vom Server importieren\nloadexp() lädt die Rohdaten direkt vom Server herunter. Die Funktion hat mehrere Argumente:\n\nstudy: das Verzeichnis der Studiendaten (z. B. “testdata” oder “testdata/study2”)\nsubdirs: sollen Unterverzeichnisse einbezogen werden? (z. B. mehrere Studienteile “study1” und “study2” oder Dateien von verschiedenen Versuchsleitern).\nsplitresponse: sollen die Antworten auf Fragebogentrials als separate Variablen gespeichert werden? (z. B. “Alter”, “Geschlecht”, “questionnaire_item1” usw.)\nlocalcopy: sollen die Daten lokal gespeichert werden? (z. B. “testdata.rds”)\n\n\nraw &lt;- loadexp(\"testdata\", subdirs = TRUE, splitresponse = TRUE, localcopy = TRUE)\n\nLocal copy found.\n\n\nNo new files found. Using local copy.\n\n\n\n\nDaten inspizieren\njsPsych gibt eine Zeile pro Trial aus. In diesem Beispiel ist die erste Zeile die Sprachauswahl, die zweite die Einwilligungserklärung, die dritte die Begrüßungsseite, dann eine Umfrage und ein paar rng-Trials Du kannst print() verwenden, um die ersten Zeilen anzuzeigen, str(), um einen Überblick über die Struktur zu erhalten, d.h. alle Variablen (Spalten) und ihre Typen, und View(), um die Daten in einem neuen RStudio-Tab zu betrachten.\n\nprint(raw)\n\n# A tibble: 102 × 26\n    file rt    stimulus             response trial_type trial_index time_elapsed\n   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;            &lt;int&gt;        &lt;int&gt;\n 1     1 2704  \"img/language-b.png\" \"0\"      image-but…           0         2705\n 2     1 1630  \"\"                   \"\"       external-…           1         4341\n 3     1 777   \"\"                   \"\"       instructi…           2         5118\n 4     1 3108  \"\"                   \"{\\\"BLL… survey               3         8238\n 5     1 null  \"rng...\"             \"null\"   html-keyb…           4         8290\n 6     1 null  \"rng...\"             \"null\"   html-keyb…           5         8460\n 7     1 null  \"rng...\"             \"null\"   html-keyb…           6         8569\n 8     1 null  \"rng...\"             \"null\"   html-keyb…           7         8679\n 9     1 null  \"rng...\"             \"null\"   html-keyb…           8         8786\n10     1 null  \"rng...\"             \"null\"   html-keyb…           9         8893\n# ℹ 92 more rows\n# ℹ 19 more variables: internal_node_id &lt;chr&gt;, study &lt;chr&gt;, subject &lt;chr&gt;,\n#   time &lt;dttm&gt;, condition &lt;chr&gt;, url &lt;chr&gt;, view_history &lt;chr&gt;,\n#   test_part &lt;chr&gt;, accuracy &lt;chr&gt;, qbit &lt;int&gt;, BLLS_1 &lt;int&gt;, BLLS_2 &lt;int&gt;,\n#   BLLS_3 &lt;int&gt;, BLLS_4 &lt;int&gt;, age &lt;int&gt;, gender &lt;chr&gt;, bildung &lt;chr&gt;,\n#   handaufsherz &lt;chr&gt;, ungewoehnlich &lt;chr&gt;\n\nstr(raw)\n\ntibble [102 × 26] (S3: tbl_df/tbl/data.frame)\n $ file            : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...\n $ rt              : chr [1:102] \"2704\" \"1630\" \"777\" \"3108\" ...\n $ stimulus        : chr [1:102] \"img/language-b.png\" \"\" \"\" \"\" ...\n $ response        : chr [1:102] \"0\" \"\" \"\" \"{\\\"BLLSIntro\\\":null,\\\"BLLS\\\":{\\\"BLLS_1\\\":0,\\\"BLLS_2\\\":1,\\\"BLLS_3\\\":2,\\\"BLLS_4\\\":3}}\" ...\n $ trial_type      : chr [1:102] \"image-button-response\" \"external-html\" \"instructions\" \"survey\" ...\n $ trial_index     : int [1:102] 0 1 2 3 4 5 6 7 8 9 ...\n $ time_elapsed    : int [1:102] 2705 4341 5118 8238 8290 8460 8569 8679 8786 8893 ...\n $ internal_node_id: chr [1:102] \"0.0-0.0\" \"0.0-1.0\" \"0.0-2.0\" \"0.0-3.0\" ...\n $ study           : chr [1:102] \"testdata1\" \"testdata1\" \"testdata1\" \"testdata1\" ...\n $ subject         : chr [1:102] \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" \"sohh7gaopn0d6lm7\" ...\n $ time            : POSIXct[1:102], format: \"2024-06-15 16:51:05\" \"2024-06-15 16:51:05\" ...\n $ condition       : chr [1:102] \"exp\" \"exp\" \"exp\" \"exp\" ...\n $ url             : chr [1:102] \"\" \"consent/consent_mm.html\" \"\" \"\" ...\n $ view_history    : chr [1:102] \"\" \"\" \"[{\\\"page_index\\\":0,\\\"viewing_time\\\":777}]\" \"\" ...\n $ test_part       : chr [1:102] \"\" \"\" \"welcome\" \"BLLS\" ...\n $ accuracy        : chr [1:102] \"\" \"\" \"\" \"[]\" ...\n $ qbit            : int [1:102] NA NA NA NA 0 1 0 1 0 1 ...\n $ BLLS_1          : int [1:102] 0 0 0 0 0 0 0 0 0 0 ...\n $ BLLS_2          : int [1:102] 1 1 1 1 1 1 1 1 1 1 ...\n $ BLLS_3          : int [1:102] 2 2 2 2 2 2 2 2 2 2 ...\n $ BLLS_4          : int [1:102] 3 3 3 3 3 3 3 3 3 3 ...\n $ age             : int [1:102] 35 35 35 35 35 35 35 35 35 35 ...\n $ gender          : chr [1:102] \"männlich\" \"männlich\" \"männlich\" \"männlich\" ...\n $ bildung         : chr [1:102] \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" \"Fach- oder Hochschulreife (Abitur)\" ...\n $ handaufsherz    : chr [1:102] \"Ja\" \"Ja\" \"Ja\" \"Ja\" ...\n $ ungewoehnlich   : chr [1:102] \"Alles tip top!\" \"Alles tip top!\" \"Alles tip top!\" \"Alles tip top!\" ...\n\nView(raw)\n\nInteressante Variablen:\n\nfile: id der einzelnen Vp-Datei (zeitlich nicht geordnet)\nrt: Reaktionszeit in ms\nstimulus: präsentierter Stimulus/Text\nresponse: vom Teilnehmer gegebene Antwort (z.B. Taste, Button, Freitext)\nstudy: Name der Studie und Studienteil\nsubject: Subject-Id\ntime: Zeitpunkt der Datenerhebung (UTC+0)\nweitere Variablen, z. B. Bedingung, Gruppe, test_part, usw.",
     "crumbs": [
       "Home",
       "Datenauswertung",
@@ -297,6 +307,66 @@
       "Home",
       "Datenauswertung",
       "Datenanalyse"
+    ]
+  },
+  {
+    "objectID": "copilot.html",
+    "href": "copilot.html",
+    "title": "Copilot: Die Power der KI nutzen",
+    "section": "",
+    "text": "Als Dozierende oder Studierende der LMU können wir einen kostenlosen Github Pro-Account beantragen und Githubs eigene KI Copilot nutzen.",
+    "crumbs": [
+      "Home",
+      "Bonus: Copilot",
+      "Copilot: Die Power der KI nutzen"
+    ]
+  },
+  {
+    "objectID": "copilot.html#github-education-account-aktivieren",
+    "href": "copilot.html#github-education-account-aktivieren",
+    "title": "Copilot: Die Power der KI nutzen",
+    "section": "Github Education Account aktivieren",
+    "text": "Github Education Account aktivieren\n\nGehe zu Github Education und klicke auf Join Github Education\nFalls Dein Account nicht mit der LMU-Emailadresse registriert wurde, füge sie nun hinzu.\nSuche Ludwig Maximilian University of Munich in der Liste der Schulen.\nBeantworte die Fragen zur Nutzung.",
+    "crumbs": [
+      "Home",
+      "Bonus: Copilot",
+      "Copilot: Die Power der KI nutzen"
+    ]
+  },
+  {
+    "objectID": "copilot.html#aktiviere-copilot-in-github",
+    "href": "copilot.html#aktiviere-copilot-in-github",
+    "title": "Copilot: Die Power der KI nutzen",
+    "section": "Aktiviere Copilot in Github",
+    "text": "Aktiviere Copilot in Github\nGehe zu Github Copilot und klicke auf Sign in with GitHub\noder\nGehe in deine Github-Einstellungen und aktiviere Copilot.",
+    "crumbs": [
+      "Home",
+      "Bonus: Copilot",
+      "Copilot: Die Power der KI nutzen"
+    ]
+  },
+  {
+    "objectID": "copilot.html#aktiviere-copilot-in-rstudio",
+    "href": "copilot.html#aktiviere-copilot-in-rstudio",
+    "title": "Copilot: Die Power der KI nutzen",
+    "section": "Aktiviere Copilot in RStudio",
+    "text": "Aktiviere Copilot in RStudio\n\nGehe in die Einstellungen unter Tools &gt; Global Options &gt; Copilot und aktiviere die Nutzung von Copilot.\nEntscheide, ob du Vorschläge automatisch oder manuell erhalten möchtest.\nLogge Dich in Deinen Github-Account ein.",
+    "crumbs": [
+      "Home",
+      "Bonus: Copilot",
+      "Copilot: Die Power der KI nutzen"
+    ]
+  },
+  {
+    "objectID": "copilot.html#arbeite-mit-copilot",
+    "href": "copilot.html#arbeite-mit-copilot",
+    "title": "Copilot: Die Power der KI nutzen",
+    "section": "Arbeite mit Copilot",
+    "text": "Arbeite mit Copilot\nAm Besten funktioniert Copilot, wenn du ihm genau sagst, was du tun möchtest. Dafür eignen sich Kommentare im Code. Diese beginnen mit einer Raute # und einem Leerzeichen. Hier ein Beispiel:\n# Berechne die Summe der Zahlen 1 bis 10\nsum(1:10)",
+    "crumbs": [
+      "Home",
+      "Bonus: Copilot",
+      "Copilot: Die Power der KI nutzen"
     ]
   }
 ]
