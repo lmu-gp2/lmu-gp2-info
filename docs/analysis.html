@@ -311,18 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Wir können <code>describe()</code> aus dem Paket <code>psych</code> für deskriptive Statistiken und <code>table()</code> für Häufigkeiten verwenden.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attache Paket: 'psych'</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Die folgenden Objekte sind maskiert von 'package:ggplot2':
-
-    %+%, alpha</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, hits, BLLS_score) <span class="sc">%&gt;%</span> <span class="co"># select which variables to describe</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()                        <span class="co"># use describe() for descriptive statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age, hits, BLLS_score) <span class="sc">%&gt;%</span> <span class="co"># select which variables to describe</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe</span>()                        <span class="co"># use describe() for descriptive statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           vars n  mean    sd median trimmed  mad min max range  skew kurtosis
 age           1 4 34.00 14.45  30.00   34.00 9.64  22  54    32  0.46    -1.92
@@ -333,8 +326,8 @@ age        7.22
 hits       0.75
 BLLS_score 0.24</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># describe by group (condition)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describeBy</span>(hits <span class="sc">+</span> BLLS_score <span class="sc">~</span> condition, <span class="at">data=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># describe by group (condition)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">describeBy</span>(hits <span class="sc">+</span> BLLS_score <span class="sc">~</span> condition, <span class="at">data=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
  Descriptive statistics by group 
@@ -351,13 +344,13 @@ condition: exp
 hits          1 2  5.5 2.12    5.5     5.5 2.22   4   7     3    0    -2.75 1.5
 BLLS_score    2 2  1.5 0.71    1.5     1.5 0.74   1   2     1    0    -2.75 0.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)                    <span class="co"># use table() for frequencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>gender)                    <span class="co"># use table() for frequencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 female   male 
      2      2 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>bildung)                   <span class="co"># use table() for frequencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>bildung)                   <span class="co"># use table() for frequencies</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Fach- oder Hochschulreife (Abitur)                     Mittlere Reife 
@@ -372,8 +365,8 @@ Fach- oder Hochschulreife (Abitur)                     Mittlere Reife
 <p>Schließlich können wir unsere Analysen durchführen. Zum Beispiel können wir mit einem t-Test oder einer ANOVA nach Gruppenunterschieden suchen, oder wir können die Daten mit <code>ggplot()</code> visualisieren.</p>
 <p>Weitere Informationen zu Bayes’schen Tests mit dem Paket “changeofevidence” finden Sie unter <a href="https://mrzdcmps.github.io/changeofevidence/vignette-t-test.html">changeofevidence t-test Vignette</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test for group differences in hits</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(hits <span class="sc">~</span> condition, <span class="at">data=</span>df, <span class="at">var.equal=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test for group differences in hits</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(hits <span class="sc">~</span> condition, <span class="at">data=</span>df, <span class="at">var.equal=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -387,9 +380,9 @@ sample estimates:
 mean in group con mean in group exp 
               6.0               5.5 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian t-test for group differences in hits</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(changeofevidence)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">bfttest</span>(hits <span class="sc">~</span> condition, <span class="at">data=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian t-test for group differences in hits</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(changeofevidence)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">bfttest</span>(hits <span class="sc">~</span> condition, <span class="at">data=</span>df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in bfttest(hits ~ condition, data = df): No alternative specified.
 Using a two-sided alternative.</code></pre>
@@ -404,7 +397,7 @@ Calculating Sequential Bayes Factors...
   |======================================================================| 100%
 Final Bayes Factor: 0.928946 (t=0.2773501; p=0.8075499)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -412,24 +405,37 @@ Final Bayes Factor: 0.928946 (t=0.2773501; p=0.8075499)</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA for gender differences in BLLS_score</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>BLLS_score <span class="sc">~</span> df<span class="sc">$</span>gender)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA for gender differences in BLLS_score</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(df<span class="sc">$</span>BLLS_score <span class="sc">~</span> df<span class="sc">$</span>gender)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)
 df$gender    1 0.0625  0.0625     0.2  0.698
 Residuals    2 0.6250  0.3125               </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot scatterplot of hits and BLLS_score</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>hits, <span class="at">y=</span>BLLS_score, <span class="at">color=</span>condition)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot scatterplot of hits and BLLS_score</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>hits, <span class="at">y=</span>BLLS_score, <span class="at">color=</span>condition)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="analysis_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ressourcen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dieser Teil ist angelehnt an die <a href="https://mrzdcmps.github.io/qpsy/vignette-qpsy.html">qpsy Vignette</a>.</p>
 </div>
 </div>
 

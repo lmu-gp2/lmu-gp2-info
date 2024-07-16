@@ -309,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tabelle-mit-1-zeile-pro-teilnehmer-erstellen" class="level3">
 <h3 class="anchored" data-anchor-id="tabelle-mit-1-zeile-pro-teilnehmer-erstellen">Tabelle mit 1 Zeile pro Teilnehmer erstellen</h3>
-<p>Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.</p>
+<p>Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen. Wir nutzen den tidy-Ansatz, der verschiedenen Funktionen nacheinander ausführt und so den Code lesbarer macht. Die Funktionen werden jeweils durch den <em>Pipe</em>-Operator <code>%&gt;%</code> verknüpft.</p>
 <p>Wichtige Funktionen:</p>
 <ul>
 <li><code>group_by()</code>: Datenrahmen nach einer Variablen gruppieren (um Variablen pro Teilnehmer und nicht für alle Teilnehmer zu berechnen).</li>
@@ -455,6 +455,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Wir können die Daten mit <code>write_csv2()</code> als .csv-Datei speichern, um sie z.B. mit JASP zu analysieren.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv2</span>(df, <span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ressourcen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dieser Teil ist angelehnt an die <a href="https://mrzdcmps.github.io/qpsy/vignette-qpsy.html">qpsy Vignette</a>.</p>
+</div>
 </div>
 
 

@@ -67,8 +67,11 @@ df <- df_all %>%
   filter(age >= 18)                        # use only participants over 18
 ```
 
-```{r}
+```{r load-libraries, eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 library(psych)
+```
+
+```{r}
 df %>%
   select(age, hits, BLLS_score) %>% # select which variables to describe
   describe()                        # use describe() for descriptive statistics
@@ -80,11 +83,9 @@ table(df$gender)                    # use table() for frequencies
 table(df$bildung)                   # use table() for frequencies
 ```
 
-
 ### Daten analysieren und visualisieren
 
-Schließlich können wir unsere Analysen durchführen.
-Zum Beispiel können wir mit einem t-Test oder einer ANOVA nach Gruppenunterschieden suchen, oder wir können die Daten mit `ggplot()` visualisieren.
+Schließlich können wir unsere Analysen durchführen. Zum Beispiel können wir mit einem t-Test oder einer ANOVA nach Gruppenunterschieden suchen, oder wir können die Daten mit `ggplot()` visualisieren.
 
 Weitere Informationen zu Bayes'schen Tests mit dem Paket "changeofevidence" finden Sie unter [changeofevidence t-test Vignette](https://mrzdcmps.github.io/changeofevidence/vignette-t-test.html).
 
@@ -106,3 +107,9 @@ ggplot(df, aes(x=hits, y=BLLS_score, color=condition)) +
   geom_point() +
   theme_minimal()
 ```
+
+::: callout-tip
+## Ressourcen
+
+Dieser Teil ist angelehnt an die [qpsy Vignette](https://mrzdcmps.github.io/qpsy/vignette-qpsy.html).
+:::

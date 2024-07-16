@@ -6,7 +6,7 @@ editor: visual
 
 ### Tabelle mit 1 Zeile pro Teilnehmer erstellen
 
-Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen.
+Wir wollen die Rohdaten, die eine Zeile pro Trial enthalten, in einen Data Frame (Tabelle) mit einer Zeile pro Teilnehmer umwandeln. Zusätzlich werden wir einige Bereinigungen, Umkodierungen und Transformationen durchführen. Wir nutzen den tidy-Ansatz, der verschiedenen Funktionen nacheinander ausführt und so den Code lesbarer macht. Die Funktionen werden jeweils durch den *Pipe*-Operator `%>%` verknüpft.
 
 Wichtige Funktionen:
 
@@ -116,3 +116,9 @@ Wir können die Daten mit `write_csv2()` als .csv-Datei speichern, um sie z.B. m
 ```{r}
 write_csv2(df, "testdata.csv")
 ```
+
+::: callout-tip
+## Ressourcen
+
+Dieser Teil ist angelehnt an die [qpsy Vignette](https://mrzdcmps.github.io/qpsy/vignette-qpsy.html).
+:::
